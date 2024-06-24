@@ -24,12 +24,12 @@ Um projeto foi criado.
 
 Tentamos de tudo, mas vários erros foram encontrados. A instalação do nodejs do tutorial não funciona e em cada computador dava um erro diferente. Como deve-se entregar a atividade, essa foi a tentativa do dia (que falhou miseravelmente) :(
 
-### 15 de jungo de 2024
+### 15 de junho de 2024
 *Por: Hugo Nakamura*
 Reinstalei o nodejs e recriei o projeto com o nome *ReactNativeForFaltei*. Após a execução de
 
 ```
-nvm install
+npm install
 ```
 
 continuava não ser possível emular aplicativo para Android, embora funcionasse para a WEB. O problema era que não era possível encontrar o diretório de instalação do Android SDK (que precisa estar instalado na máquina). Dessa forma, como eu estava utilizando a distribuição linux Ubuntu 22.04, foi preciso adicionar e configurar:
@@ -44,4 +44,11 @@ Além disso, é preciso criar as pastas *android* e *ios*, executando:
 
 ```
 npx expo prebuild --clean
+```
+### 24 de junho de 2024
+*Por: Isaac Soares*
+Hoje descobri como executar o nosso aplicativo no expoGo sem depêndencia da rede local. Para isso basta executar o app com:
+
+```
+npx expo start --tunnel
 ```
