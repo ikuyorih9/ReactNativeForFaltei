@@ -52,3 +52,8 @@ Hoje descobri como executar o nosso aplicativo no expoGo sem depêndencia da red
 ```
 npx expo start --tunnel
 ```
+
+### 25 de junho de 2024
+*Por: Isaac Soares*
+
+Comecei a barra de navegações criando os arquivos das páginas na pasta `(tabs)`. Além de configurar os icones no aqruivo `_layout.tsx`.
