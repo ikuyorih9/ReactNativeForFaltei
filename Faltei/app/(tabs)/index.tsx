@@ -2,23 +2,25 @@ import React from 'react';
 import { DefaultTopBar } from '@/components/DefaultTopBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <ThemedView>
-      <DefaultTopBar />
+    <View >
+      <DefaultTopBar/>
       <ThemedView style={styles.container}>
-        <ThemedText type="title">Disciplinas</ThemedText>
+        <ThemedText type="title" lightColor='#000' darkColor='#fff'>Home</ThemedText>
       </ThemedView>
-    </ThemedView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    color: 'red',
+    display: 'flex',
+    flexDirection: "column",
+    gap: 15,
+    paddingTop: DefaultTopBar.height+ 15,
+    backgroundColor: 'transparent',
   },
 });

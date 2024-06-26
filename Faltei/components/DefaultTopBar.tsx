@@ -24,6 +24,7 @@ const calculatedHeight = 30 + (StatusBar.currentHeight ? StatusBar.currentHeight
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: "column",
   },
   horizontalBar: {
     backgroundColor: "#2D3856",
