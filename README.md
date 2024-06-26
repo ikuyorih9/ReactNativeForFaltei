@@ -57,3 +57,9 @@ npx expo start --tunnel
 *Por: Isaac Soares*
 
 Comecei a barra de navegações criando os arquivos das páginas na pasta `(tabs)`. Além de configurar os icones no aqruivo `_layout.tsx`.
+
+### 26 de junho de 2024
+*Por: Isaac Soares*
+
+Fiz o componete ´ThemedStatusBar´ que troca a cor do background e troca a cor dos icones da *status bar*.
+Também fiz um componente ´DefaultTopBar´ que muda a cor de fundo da *status bar* e dos icones dependendo do tema do sistema (Dark ou Light), além de adicionar uma barra horizontal com 30px a abaixo da *status bar*.
