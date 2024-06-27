@@ -4,12 +4,12 @@ import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { StyleSheet, View } from 'react-native';
 
-export default function HomeScreen() {
+export default function Config() {
   return (
     <View >
       <DefaultTopBar/>
       <ThemedView style={styles.container}>
-        <ThemedText type="title" lightColor='#000' darkColor='#fff'>Home</ThemedText>
+        <ThemedText type="title" lightColor='#000' darkColor='#fff'>Configurações</ThemedText>
       </ThemedView>
     </View>
   );

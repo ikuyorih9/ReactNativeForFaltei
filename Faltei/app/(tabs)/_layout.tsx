@@ -13,6 +13,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
+        tabBarStyle: { backgroundColor: Colors[colorScheme ?? 'light'].tabBackground },
       }}>
       <Tabs.Screen
         name="index"
@@ -24,11 +25,29 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="disciplinas"
         options={{
-          title: 'Explore',
+          title: 'Disciplinas',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'library' : 'library-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="faltas"
+        options={{
+          title: 'Faltas',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'add-circle' : 'add-circle-outline'} color={color} style={{transform: [{ rotate: '45deg' }]}} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="config"
+        options={{
+          title: 'Configurações',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'construct' : 'construct-outline'} color={color} />
           ),
         }}
       />
