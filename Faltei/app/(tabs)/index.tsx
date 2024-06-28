@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   view:{
-    padding: 25,
+    padding: 10,
+    margin: 25,
     backgroundColor: '#E3E1E1'
   },
   image: {
