@@ -7,8 +7,8 @@ export function DefaultTopBar() {
   return (
     <View>
       <ThemedStatusBar
-        lightColor="#554991" // Cor para o tema claro
-        darkColor="#554991" // Cor para o tema escuro
+        lightColor="#2D3855" // Cor para o tema claro
+        darkColor="#2D3855" // Cor para o tema escuro
         lightContent={scheme === "light" ? true : false} // Conteúdo da barra de status claro
       />
       <View style={styles.container}>
