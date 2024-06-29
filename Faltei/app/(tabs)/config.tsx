@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: "column",
     gap: 15,
-    paddingTop: DefaultTopBar.height+ 15,
+    paddingTop: DefaultTopBar.height,
     backgroundColor: 'transparent',
   },
 });

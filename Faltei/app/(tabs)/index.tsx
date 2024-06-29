@@ -2,24 +2,23 @@ import React from 'react';
 import { DefaultTopBar } from '@/components/DefaultTopBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
-import { StyleSheet, View, Image, Text } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StyleSheet, Image} from 'react-native';
 
-const PlaceHolder = require('@/assets/images/generic_pie.png');
+import PlaceHolder from '@/assets/images/generic_pie.png';
 
 export default function HomeScreen() {
   return (
-    <View>
-        <DefaultTopBar/>
-        <View style={styles.container}>
-          <View style={styles.view}>
-            <Image source={PlaceHolder} style={styles.image}/>
-          </View>
-          <View style={styles.view}>
-            <Text>Ele é um barato e é da pesada!</Text>
-          </View>
-        </View>
-      </View>
+    <ThemedView>
+      <DefaultTopBar/>
+      <ThemedView style={styles.container}>
+        <ThemedView style={styles.view}>
+          <Image source={PlaceHolder} style={styles.image}/>
+        </ThemedView>
+        <ThemedView style={styles.view}>
+          <ThemedText>Ele é um barato e é da pesada!</ThemedText>
+        </ThemedView>
+      </ThemedView>
+    </ThemedView>
   );
 };
 
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: "column",
     gap: 15,
-    paddingTop: DefaultTopBar.height+ 15,
+    paddingTop: DefaultTopBar.height,
     backgroundColor: 'transparent',
   },
   view:{
