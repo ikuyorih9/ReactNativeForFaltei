@@ -20,3 +20,6 @@ export function ThemedStatusBar({ lightColor, darkColor, lightContent = true }: 
     />
   );
 }
+
+// Exporta a altura como uma propriedade estática do componente
+ThemedStatusBar.height = StatusBar.currentHeight ? StatusBar.currentHeight : 0;
