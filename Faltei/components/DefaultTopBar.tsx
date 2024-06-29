@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme, View, SafeAreaView } from 'react-native';
 
 export function DefaultTopBar() {
   const scheme = useColorScheme();
@@ -9,10 +9,10 @@ export function DefaultTopBar() {
       <ThemedStatusBar
         lightColor="#2D3855" // Cor para o tema claro
         darkColor="#2D3855" // Cor para o tema escuro
-        lightContent={scheme === "light" ? true : false} // Conteúdo da barra de status claro
+        lightContent={scheme === 'light' ? true : false} // Conteúdo da barra de status claro
       />
       <View style={styles.container}>
-        <View style={styles.horizontalBar}></View>
+        <SafeAreaView style={styles.horizontalBar}></SafeAreaView>
       </View>
     </View>
   );

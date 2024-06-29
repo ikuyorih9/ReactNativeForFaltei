@@ -2,16 +2,17 @@ import React from 'react';
 import { DefaultTopBar } from '@/components/DefaultTopBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, SafeAreaView} from 'react-native';
 
 export default function Disciplinas() {
   return (
-    <View >
+    <ThemedView>
       <DefaultTopBar/>
-      <ThemedView style={styles.container}>
+      {/* Usar a SafeAreaView após o DefaultTopBar para evitar que o conteúdo fique atrás da barra de status no IOS */}
+      <SafeAreaView style={styles.container}>
         <ThemedText type="title" lightColor='#000' darkColor='#fff'>Disciplinas</ThemedText>
-      </ThemedView>
-    </View>
+      </SafeAreaView>
+    </ThemedView>
   );
 };
 

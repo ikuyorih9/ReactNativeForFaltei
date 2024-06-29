@@ -79,3 +79,8 @@ ConfigError: Cannot determine which native SDK version your project uses because
 Para solucionalo bastou seguir instalar o gerenciador de pacotes yarn e executar `yarn add expo` na pasta `./Faltei`.
 
 Usando o yarn foi solicitado pelo gerenciador de pacotes que não misturassem os gerenciadores pois isso causa inconcistências nas depêndencias do projeto. Então foi padronizado o uso do yarn excluindo o `package-lock.json` deixando somente o `yarn.lock`.
+
+Usei a SaSafeAreaViewf para ajustar a área de renderização no IOS. (Fiz o teste no iPhone 11)
+
+*Por: Hugo Nakamura* 😭😭😭😭😭
+**Hugo adicione as mudanças q vc fez hjjj!!!!!!!!!!!!!!!**
