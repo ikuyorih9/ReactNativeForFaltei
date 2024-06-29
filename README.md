@@ -83,4 +83,5 @@ Usando o yarn foi solicitado pelo gerenciador de pacotes que não misturassem os
 Usei a SaSafeAreaViewf para ajustar a área de renderização no IOS. (Fiz o teste no iPhone 11)
 
 *Por: Hugo Nakamura* 😭😭😭😭😭
+
 **Hugo adicione as mudanças q vc fez hjjj!!!!!!!!!!!!!!!**
