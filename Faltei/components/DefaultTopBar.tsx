@@ -13,7 +13,7 @@ type DefaultTopBarProps = {
 // Calcula a altura baseada na altura da StatusBar e na altura definida para a barra horizontal
 let calculatedHeight : number = (StatusBar.currentHeight ? StatusBar.currentHeight : 0);
 
-export function DefaultTopBar({ lightColor, darkColor, statusBarContentColor = 'light', horizontalBarColor = "#000", horizontalBarHeight = 0}: DefaultTopBarProps) {
+export function DefaultTopBar({ lightColor, darkColor, statusBarContentColor = 'light', horizontalBarColor, horizontalBarHeight}: DefaultTopBarProps) {
   
   let lightContent: boolean = true;
   if(statusBarContentColor === 'auto') {
@@ -23,12 +23,18 @@ export function DefaultTopBar({ lightColor, darkColor, statusBarContentColor = '
     lightContent = false;
   }
 
+  if(horizontalBarColor === undefined) {
+    horizontalBarColor = (useColorScheme() === 'light' ? lightColor : darkColor);
+  } 
+
   let horizontalBarDisplay: "flex" | "none" = "flex";
-  if(horizontalBarHeight === 0) {
+  if(horizontalBarHeight === undefined || horizontalBarHeight <= 0) {
     horizontalBarDisplay = "none";
+  } else {
+    calculatedHeight += horizontalBarHeight;
   }
   
-  calculatedHeight += horizontalBarHeight;
+  
 
   return (
     <View>
