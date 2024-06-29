@@ -7,7 +7,10 @@ import { StyleSheet, SafeAreaView} from 'react-native';
 export default function Disciplinas() {
   return (
     <ThemedView>
-      <DefaultTopBar/>
+      <DefaultTopBar 
+        lightColor='#2D3855'
+        darkColor='#2D3855'
+      />
       {/* Usar a SafeAreaView após o DefaultTopBar para evitar que o conteúdo fique atrás da barra de status no IOS */}
       <SafeAreaView style={styles.container}>
         <ThemedText type="title" lightColor='#000' darkColor='#fff'>Disciplinas</ThemedText>

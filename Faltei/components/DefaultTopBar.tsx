@@ -2,34 +2,52 @@ import React from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { StatusBar, StyleSheet, useColorScheme, View, SafeAreaView } from 'react-native';
 
-export function DefaultTopBar() {
-  const scheme = useColorScheme();
+type DefaultTopBarProps = {
+  lightColor: string;
+  darkColor: string;
+  statusBarContentColor?: string; 
+  horizontalBarColor?: string;
+  horizontalBarHeight?: number;
+}
+
+// Calcula a altura baseada na altura da StatusBar e na altura definida para a barra horizontal
+let calculatedHeight : number = (StatusBar.currentHeight ? StatusBar.currentHeight : 0);
+
+export function DefaultTopBar({ lightColor, darkColor, statusBarContentColor = 'light', horizontalBarColor = "#000", horizontalBarHeight = 0}: DefaultTopBarProps) {
+  
+  let lightContent: boolean = true;
+  if(statusBarContentColor === 'auto') {
+    lightContent = (useColorScheme() === 'light' ? true : false);
+  }
+  if(statusBarContentColor === 'dark') {
+    lightContent = false;
+  }
+
+  let horizontalBarDisplay: "flex" | "none" = "flex";
+  if(horizontalBarHeight === 0) {
+    horizontalBarDisplay = "none";
+  }
+  
+  calculatedHeight += horizontalBarHeight;
+
   return (
     <View>
       <ThemedStatusBar
-        lightColor="#2D3855" // Cor para o tema claro
-        darkColor="#2D3855" // Cor para o tema escuro
-        lightContent={scheme === 'light' ? true : false} // Conteúdo da barra de status claro
+        lightColor={lightColor} // Cor para o tema claro
+        darkColor={darkColor} // Cor para o tema escuro
+        lightContent={lightContent} // Conteúdo da barra de status claro
       />
-      <View style={styles.container}>
-        <SafeAreaView style={styles.horizontalBar}></SafeAreaView>
+      <View style={{display: horizontalBarDisplay, ...styles.container}}>
+        <SafeAreaView style={{height: horizontalBarHeight, backgroundColor: horizontalBarColor}}></SafeAreaView>
       </View>
     </View>
   );
 };
 
-// Calcula a altura baseada na altura da StatusBar e na altura definida para a barra horizontal
-const calculatedHeight = 30 + (StatusBar.currentHeight ? StatusBar.currentHeight : 0);
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: "column",
   },
-  horizontalBar: {
-    backgroundColor: "#2D3856",
-    height: calculatedHeight,
-  }
 });
 
 // Exporta a altura como uma propriedade estática do componente
