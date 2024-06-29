@@ -67,7 +67,7 @@ Também fiz um componente ´DefaultTopBar´ que muda a cor de fundo da *status b
 
 Utilizei o componente ´DefaultTopBar´ para iniciar os layouts das páginas Home, Disciplinas, Faltas, Configurações. Adicionei um container abaixo da ´DefaultTopBar´ e arrumei o estilo para podermos começar a trabalhar nas páginas em específico.
 
-### 26 de junho de 2024
+### 28 de junho de 2024
 *Por: Isaac Soares*
 
 Hoje tive um erro diferente com o Expo:
@@ -85,3 +85,8 @@ Usei a SaSafeAreaViewf para ajustar a área de renderização no IOS. (Fiz o tes
 *Por: Hugo Nakamura* 😭😭😭😭😭
 
 **Hugo adicione as mudanças q vc fez hjjj!!!!!!!!!!!!!!!**
+
+### 29 de junho de 2024
+*Por: Isaac Soares*
+
+Percebi que meu ´DefaultTopBar´ estava muito específico e tentei tornalo mais genérico para poder mudar o tamnho da barra abaixo da StatusBar, mas isso começou a gerar problemas. Por isso decidi tirar e usar só a ´ThemedStatusBar´.
