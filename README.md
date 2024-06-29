@@ -65,4 +65,15 @@ Fiz o componete ´ThemedStatusBar´ que troca a cor do background e troca a cor 
 
 Também fiz um componente ´DefaultTopBar´ que muda a cor de fundo da *status bar* e dos icones dependendo do tema do sistema (Dark ou Light), além de adicionar uma barra horizontal com 30px a abaixo da *status bar*.
 
-Utilizei o componente ´DefaultTopBar´ para iniciar os layouts das páginas Home, Disciplinas, Faltas, Configurações. Adicionei um container abaixo da ´DefaultTopBar´ e arrumei o estilo para podermos começar a trabalhar nas páginas em específico. 
+Utilizei o componente ´DefaultTopBar´ para iniciar os layouts das páginas Home, Disciplinas, Faltas, Configurações. Adicionei um container abaixo da ´DefaultTopBar´ e arrumei o estilo para podermos começar a trabalhar nas páginas em específico.
+
+### 26 de junho de 2024
+*Por: Isaac Soares*
+
+Hoje tive um erro diferente com o Expo:
+
+```bash
+ConfigError: Cannot determine which native SDK version your project uses because the module `expo` is not installed.
+```
+
+Para solucionalo bastou seguir instalar o gerenciador de pacotes yarn e executar `yarn add expo` na pasta `./Faltei`.
