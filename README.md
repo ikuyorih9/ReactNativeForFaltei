@@ -96,3 +96,8 @@ Fiz o componente `BannerDisciplinasFaltas` para utilizalo na página de faltas. 
 *Por: Hugo Nakamura*
 
 Adicionou a parte de roteamento das páginas fora dos Tabs. Além de fazer um botão na página disciplina para levar para página de adicionar disciplina.
+
+### 30 de junho de 2024
+*Por: Isaac Soares*
+
+Exclui alguns arquivos desnecessários criados durante os testes. E arrumei alguns layouts de páginas para seguir o padrão. Além disso centralizei o icone de "+" usado no botão na página disciplinas. 
