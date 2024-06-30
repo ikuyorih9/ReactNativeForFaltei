@@ -101,3 +101,5 @@ Adicionou a parte de roteamento das páginas fora dos Tabs. Além de fazer um bo
 *Por: Isaac Soares*
 
 Exclui alguns arquivos desnecessários criados durante os testes. E arrumei alguns layouts de páginas para seguir o padrão. Além disso centralizei o icone de "+" usado no botão na página disciplinas. 
+
+Comecei a página addFaltas, fazendo uma navegação para ela ao clicar no `BannerDisciplinasFaltas` e passando o nome da disciplina e a cor da barra lateral por parâmetro, pois eles sera usados no título da página e na cor do gráfico de faltas respectivamente.
