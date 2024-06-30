@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { View, Text, Button, useColorScheme, SafeAreaView, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { Text, useColorScheme, SafeAreaView, StyleSheet } from 'react-native';
+import { useNavigation } from 'expo-router';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 

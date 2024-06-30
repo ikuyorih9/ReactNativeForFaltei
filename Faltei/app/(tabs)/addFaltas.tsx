@@ -5,6 +5,8 @@ import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
+import GraficoPNG from '@/assets/images/garfico_addfaltas.png';
+
 type AddFaltasScreenRouteParams = {
   nomeDisciplina: string;
   corBarraLateral: string;
@@ -12,14 +14,9 @@ type AddFaltasScreenRouteParams = {
 
 type AddFaltasScreenRouteProp = RouteProp<{ params: AddFaltasScreenRouteParams }, 'params'>;
 
-import GraficoPNG from '@/assets/images/garfico_addfaltas.png';
-
 export default function AddFaltas() {
   const route = useRoute<AddFaltasScreenRouteProp>();
   const { nomeDisciplina, corBarraLateral } = route.params;
-
-  // console.log('Nome da disciplina:', nomeDisciplina);
-  // console.log('Cor da barra lateral:', corBarraLateral);
   
   return (
     <ThemedView style={{backgroundColor: 'transparent'}}>

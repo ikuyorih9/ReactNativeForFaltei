@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { BackHandler, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from 'expo-router';
 import { Colors } from '@/constants/Colors';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -15,6 +15,7 @@ type BannerDisciplinasFaltasProps = {
 export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: BannerDisciplinasFaltasProps) {
   const [opacidade, setOpacidade] = useState(1);
   const navigation = useNavigation();
+
   return (
     <TouchableWithoutFeedback
       onPressIn={() => setOpacidade(0.6)}
