@@ -41,7 +41,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'light' ? DefaultTheme : DarkTheme}>
       <Stack.Navigator>
         <Stack.Screen name='(tabs)' component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name='addDisciplinas' component={AddDisciplinasScreen} options={{ title: "Adicionar Disciplinas" }}/>
+        <Stack.Screen name='addDisciplinas' component={AddDisciplinasScreen} />
       </Stack.Navigator>
     </ThemeProvider>
   );
