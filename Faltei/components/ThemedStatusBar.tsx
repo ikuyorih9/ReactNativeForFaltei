@@ -3,8 +3,8 @@ import { StatusBar, StatusBarStyle } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 type ThemedStatusBarProps = {
-  lightColor?: string;
-  darkColor?: string;
+  lightColor: string;
+  darkColor: string;
   lightContent?: boolean;
 };
 

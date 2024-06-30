@@ -80,13 +80,19 @@ Para solucionalo bastou seguir instalar o gerenciador de pacotes yarn e executar
 
 Usando o yarn foi solicitado pelo gerenciador de pacotes que não misturassem os gerenciadores pois isso causa inconcistências nas depêndencias do projeto. Então foi padronizado o uso do yarn excluindo o `package-lock.json` deixando somente o `yarn.lock`.
 
-Usei a SaSafeAreaViewf para ajustar a área de renderização no IOS. (Fiz o teste no iPhone 11)
+Usei a SafeAreaView para ajustar a área de renderização no IOS. (Fiz o teste no iPhone 11)
 
-*Por: Hugo Nakamura* 😭😭😭😭😭
+*Por: Hugo Nakamura*
 
-**Hugo adicione as mudanças q vc fez hjjj!!!!!!!!!!!!!!!**
+Adicionou a imagem do gráfico na Home Screen.
 
 ### 29 de junho de 2024
 *Por: Isaac Soares*
 
 Percebi que meu ´DefaultTopBar´ estava muito específico e tentei tornalo mais genérico para poder mudar o tamnho da barra abaixo da StatusBar, mas isso começou a gerar problemas. Por isso decidi tirar e usar só a ´ThemedStatusBar´.
+
+Fiz o componente `BannerDisciplinasFaltas` para utilizalo na página de faltas. Lá eu utilizei um `ScrollView` para colocar vários banners para indicar disciplinas diferentes e utilizar cores diferentes.
+
+*Por: Hugo Nakamura*
+
+Adicionou a parte de roteamento das páginas fora dos Tabs. Além de fazer um botão na página disciplina para levar para página de adicionar disciplina.

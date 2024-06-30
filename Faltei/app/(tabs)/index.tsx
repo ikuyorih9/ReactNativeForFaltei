@@ -3,10 +3,7 @@ import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
-import { StyleSheet, View, Image, Text, Button } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, SafeAreaView, Image, Button, useColorScheme } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../routes'
@@ -18,31 +15,32 @@ type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 export default function HomeScreen() {
   const navigation = useNavigation<homeScreenProp>();
   return (
-    <View>
-        <View style={styles.container}>
-          <View style={styles.view}>
-            <Image source={PlaceHolder} style={styles.image}/>
-          </View>
-          <View style={styles.view}>
-            <Text>Ele é um barato e é da pesada!</Text>
-          </View>
-        </View>
+    <ThemedView>
+      <ThemedStatusBar
+        lightColor={'#2D3855'} // Cor para o tema claro
+        darkColor={'#2D3855'} // Cor para o tema escuro
+        lightContent={useColorScheme() === 'light' ? true : false} // Conteúdo da barra de status claro
+      />
+      <SafeAreaView style={styles.container}>
+        <ThemedView style={styles.view}>
+          <Image source={PlaceHolder} style={styles.image}/>
+        </ThemedView>
+        <ThemedView style={styles.view}>
+          <ThemedText>Ele é um barato e é da pesada!</ThemedText>
+        </ThemedView>
         <Button
           title="Go to Details"
           onPress={() => navigation.navigate('addDisciplinas')}
         />
-      </View>
+      </SafeAreaView>
+    </ThemedView>
 
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: "column",
     paddingTop: ThemedStatusBar.height,
-    gap: 15,
-    backgroundColor: 'transparent',
   },
   view:{
     padding: 10,

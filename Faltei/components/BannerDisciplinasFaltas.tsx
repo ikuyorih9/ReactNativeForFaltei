@@ -22,7 +22,7 @@ export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: Ban
         setOpacidade(1);
       }}
     >
-      <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[{ opacity: opacidade }, styles.container]}>
+      <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade }]}>
         <ThemedView style={[styles.barralateral, { backgroundColor: corBarraLateral }]}></ThemedView>
         <ThemedView style={styles.cotainerInfos}>
           <ThemedView style={styles.nomeDisciplinaContainer}>
@@ -39,10 +39,11 @@ export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: Ban
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
+
     height: 130,
     borderRadius: 15,
 
-    flex: 1,
     flexDirection: 'row',
   },
   barralateral: {
@@ -53,27 +54,27 @@ const styles = StyleSheet.create({
   cotainerInfos: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-
-    gap: 5,
 
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
 
-    paddingHorizontal: 25,
-  },
-  grafico: {
-    width: 100,
-    height: 100,
+    paddingLeft: 15,
+    paddingRight: 10,
   },
   nomeDisciplinaContainer: {
-    flex: 1,
-    marginLeft: 25,
+    width: 215,
+    marginRight: 10,
   },
   nomeDisciplina: {
     flexShrink: 1,
     fontSize: 18,
-    fontWeight: 'regular',
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  grafico: {
+    width: 90,
+    height: 93,
   },
 });

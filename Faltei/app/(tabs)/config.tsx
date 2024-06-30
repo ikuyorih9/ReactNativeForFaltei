@@ -24,8 +24,6 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: "column",
-    gap: 15,
     paddingTop: ThemedStatusBar.height,
-    backgroundColor: 'transparent',
   },
 });
