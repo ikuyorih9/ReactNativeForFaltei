@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
 import 'react-native-reanimated';
 
-
+import tabs from './(tabs)';
 import HomeScreen from './(tabs)/index';
 import AddDisciplinasScreen from './addDisciplinas';
 import AddFaltasScreen from './addFaltas';
@@ -14,7 +14,7 @@ import AddFaltasScreen from './addFaltas';
 SplashScreen.preventAutoHideAsync();
 
 export type RootStackParamList = {
-  "(tabs)": undefined;
+  tabs: undefined;
   Home: undefined;
   disciplinas: undefined;
   addDisciplinas: undefined;
@@ -27,9 +27,9 @@ export default function RootLayout() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='(tabs)' component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name='addDisciplinas' component={AddDisciplinasScreen} options={{ title: "Adicionar Disciplinas" }}/>
-        <Stack.Screen name='addFaltas' component={AddFaltasScreen} options={{ title: "Mostrar Faltas" }}/>
+        <Stack.Screen name='(tabs)' component={tabs} options={{ headerShown: false }} />
+        <Stack.Screen name='addDisciplinas' component={AddDisciplinasScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name='addFaltas' component={AddFaltasScreen} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
