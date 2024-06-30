@@ -16,6 +16,8 @@ export default function Config() {
       <SafeAreaView style={styles.container}>
         <ThemedText type="title" lightColor='#000' darkColor='#fff'>Configurações</ThemedText>
       </SafeAreaView>
+
+      
     </ThemedView>
   );
 };

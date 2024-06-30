@@ -56,6 +56,13 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="notas"
+        options={{
+          href: null,
+          tabBarStyle: { display: 'none' },
+        }}
+      />
     </Tabs>
   );
 }
