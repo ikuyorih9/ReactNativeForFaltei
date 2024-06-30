@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../_layout'
+import { RootStackParamList } from '../routes'
 
 const PlaceHolder = require('@/assets/images/generic_pie.png');
 
