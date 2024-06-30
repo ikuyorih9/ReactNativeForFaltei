@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import { Colors } from '@/constants/Colors';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -14,12 +14,15 @@ type BannerDisciplinasFaltasProps = {
 
 export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: BannerDisciplinasFaltasProps) {
   const [opacidade, setOpacidade] = useState(1);
-
+  const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback
       onPressIn={() => setOpacidade(0.6)}
       onPressOut={() => {
         setOpacidade(1);
+      }}
+      onPress={() => {
+        navigation.navigate('addFaltas', { nomeDisciplina, corBarraLateral });
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade }]}>
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
   nomeDisciplinaContainer: {
     width: 215,
     marginRight: 10,
+    backgroundColor: 'transparent',
   },
   nomeDisciplina: {
     flexShrink: 1,

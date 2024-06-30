@@ -101,3 +101,11 @@ Adicionou a parte de roteamento das páginas fora dos Tabs. Além de fazer um bo
 *Por: Isaac Soares*
 
 Exclui alguns arquivos desnecessários criados durante os testes. E arrumei alguns layouts de páginas para seguir o padrão. Além disso centralizei o icone de "+" usado no botão na página disciplinas. 
+
+Comecei a página addFaltas, fazendo uma navegação para que ao clicar no `BannerDisciplinasFaltas` passe o nome da disciplina e a cor da barra lateral por parâmetro, pois eles serão usados no título da página e na cor do gráfico de faltas respectivamente.
+
+Na página de adicionar faltas, temos o nome da disciplinas e um gráfico indicando quantas faltas o usuário tem naquela disciplina. Ainda não foi adicionado a lista de faltas.
+
+Como eu estava tendo muitos probelmas com as rotas dediquei um tempo para entender como tinha sido feito pelo Hugo e percebi que ele estava misturando o expo-router com o react-navigator. E isso estava gerando conflitos na hora da navegação entre as páginas. Depos de muito pesquisar e tentar consegui arrumar as rotas, e fazer elas funcionarem apenas usando o Tabs do expo router. Então adicionei o addDisciplinas e o addFaltas nas rotas e fiz o header e a tab bar deles sumirem.
+ 
+**OBS.:** *Por enquanto para voltar tem que pressionar o botão de voltar do sistema operacional.* 
