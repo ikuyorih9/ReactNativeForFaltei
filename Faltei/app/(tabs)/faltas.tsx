@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { BannerDisciplinasFaltas } from '@/components/BannerDisciplinasFaltas';
 import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 import { StyleSheet, ScrollView, SafeAreaView, useColorScheme } from 'react-native';
 
 
@@ -15,6 +16,7 @@ export default function Faltas() {
       />
       {/* Usar a SafeAreaView após o DefaultTopBar para evitar que o conteúdo fique atrás da barra de status no IOS */}
       <SafeAreaView style={styles.container}>
+        <ThemedText type="title" lightColor='#000' darkColor='#fff'>Faltas</ThemedText>
         <ScrollView style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
           <BannerDisciplinasFaltas
             corBarraLateral="#4BA3BE"
@@ -36,12 +38,14 @@ export default function Faltas() {
       </SafeAreaView>
     </ThemedView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: "column",
+    gap: 15,
+    paddingTop: ThemedStatusBar.height,
     marginTop: ThemedStatusBar.height,
     backgroundColor: 'transparent',
     height: "95%",

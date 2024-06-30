@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { useRouter } from 'expo-router'; // Importe useRouter de expo-router
+
 import { Colors } from '@/constants/Colors';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -14,14 +14,12 @@ type BannerDisciplinasFaltasProps = {
 
 export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: BannerDisciplinasFaltasProps) {
   const [opacidade, setOpacidade] = useState(1);
-  const router = useRouter(); // Use o hook useRouter
 
   return (
     <TouchableWithoutFeedback
       onPressIn={() => setOpacidade(0.6)}
       onPressOut={() => {
         setOpacidade(1);
-        router.push('/root/settings/media');
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[{ opacity: opacidade }, styles.container]}>
