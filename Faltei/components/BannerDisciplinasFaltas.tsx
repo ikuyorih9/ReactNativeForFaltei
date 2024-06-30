@@ -20,6 +20,8 @@ export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: Ban
       onPressIn={() => setOpacidade(0.6)}
       onPressOut={() => {
         setOpacidade(1);
+      }}
+      onPress={() => {
         navigation.navigate('addFaltas', { nomeDisciplina, corBarraLateral });
       }}
     >
@@ -67,6 +69,7 @@ const styles = StyleSheet.create({
   nomeDisciplinaContainer: {
     width: 215,
     marginRight: 10,
+    backgroundColor: 'transparent',
   },
   nomeDisciplina: {
     flexShrink: 1,
