@@ -90,3 +90,10 @@ Usei a SaSafeAreaViewf para ajustar a área de renderização no IOS. (Fiz o tes
 *Por: Isaac Soares*
 
 Percebi que meu ´DefaultTopBar´ estava muito específico e tentei tornalo mais genérico para poder mudar o tamnho da barra abaixo da StatusBar, mas isso começou a gerar problemas. Por isso decidi tirar e usar só a ´ThemedStatusBar´.
+
+### 29 de junho de 2024
+*Por Jade Bortot*
+
+Iniciei o layout da tela de notas, percebi que vou ter que criar tabelas dentro de tabelas, porém não sei exatamente como vou fazer para que o tamanho delas se enquadre de forma proporcional a quantidade de colunas referente a notas de trabalhos e provas, que são configuraveis pelo usuário.
+Acho que deveria ter começado de dentro para fora e não de fora para dentro...
+Outra coisa é sobre onde essa tela vai ficar localizada, coloquei ela na barra inferior para ficar mais fácil para mim achar, mas esse não é o lugar dela. tenho que deixá-la relacionada para cada disciplina e linkar os campos e cores devidamente para que faça sentido.
