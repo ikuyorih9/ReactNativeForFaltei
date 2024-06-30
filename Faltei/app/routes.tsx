@@ -12,6 +12,7 @@ SplashScreen.preventAutoHideAsync();
 export type RootStackParamList = {
   "(tabs)": undefined;
   Home: undefined;
+  disciplinas: undefined;
   addDisciplinas: undefined;
 };
 
