@@ -2,12 +2,20 @@ import React from 'react';
 import { DefaultTopBar } from '@/components/DefaultTopBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image, Text, Button } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../_layout'
 
 const PlaceHolder = require('@/assets/images/generic_pie.png');
 
+type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
 export default function HomeScreen() {
+  const navigation = useNavigation<homeScreenProp>();
   return (
     <View>
         <DefaultTopBar/>
@@ -19,7 +27,12 @@ export default function HomeScreen() {
             <Text>Ele é um barato e é da pesada!</Text>
           </View>
         </View>
+        <Button
+          title="Go to Details"
+          onPress={() => navigation.navigate('addDisciplinas')}
+        />
       </View>
+
   );
 };
 
