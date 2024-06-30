@@ -30,6 +30,8 @@ export default function Notas() {
     const cincobola = ['Para alcançar o 5bola'];
     const obj = ['Para alcançar os objetivos'];
 
+    const vazia = [null];
+
 
     // Dados da tabela (substitua com os dados reais da disciplina)
     // const tableData = data.map((passenger) => [
@@ -50,6 +52,7 @@ export default function Notas() {
             <SafeAreaView style={styles.barraSuperior}>
                 <ThemedText type="title" lightColor='#000' darkColor='#fff'>Notas</ThemedText>
             </SafeAreaView>
+            {/* inserir aqui o nome da disciplina */}
             <ScrollView>
                 <SafeAreaView style={styles.container}>
                     {/* aqui tem que arrumar tanto as colunas personalizaveis e as areas onde o usuario vai colocar as notas e tem que fazer o calcula da media */}
@@ -96,9 +99,7 @@ export default function Notas() {
                             {[1].map((_, index) => (
                                 <View key={index} style={styles.tableContainer}>
                                     <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
-                                        <Row data={mediaT} style={styles.head} textStyle={styles.text} />
-                                        <Row data={mediaP} style={styles.head} textStyle={styles.text} />
-                                        <Row data={mediaF} style={styles.head} textStyle={styles.text} />
+                                        <Rows data={[mediaT, mediaP, mediaF]} style={styles.head} textStyle={styles.text} />
                                     </Table>
                                 </View>
                             ))}
@@ -110,8 +111,15 @@ export default function Notas() {
                         <ThemedText style={styles.rectangleTitle} type="title" lightColor='#000' darkColor='#fff'>Análises</ThemedText>
                             
                         <View style={styles.tableRow}>
-                            {[2].map((_, index) => (
+                            {[1].map((_, index) =>(
                                 <View key={index} style={styles.tableContainer}>
+                                    <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
+                                        <Rows data={[vazia, vazia, cincobola, obj]} style={styles.head} textStyle={styles.text} />
+                                    </Table>
+                                </View>
+                            ))}
+                            {[1].map((_, nt) => (
+                                <View key={nt} style={styles.tableContainer}>
                                     <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
                                         <Row data={tableNT} style={styles.head} textStyle={styles.text} />
                                         <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
@@ -120,21 +128,13 @@ export default function Notas() {
                                     </Table>
                                 </View>
                             ))}
-                            {[2].map((_, index) =>(
-                                <View key={index} style={styles.tableContainer}>
+                            {[1].map((_, np) =>(
+                                <View key={np} style={styles.tableContainer}>
                                     <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
                                         <Row data={tableNP} style={styles.head} textStyle={styles.text} />
                                         <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
                                             <Row data={tableP} style={styles.head} textStyle={styles.text} />
                                         </Table>
-                                    </Table>
-                                </View>
-                            ))}
-                            {[1].map((_, index) =>(
-                                <View key={index} style={styles.tableContainer}>
-                                    <Table borderStyle={{ borderWidth: 1, borderColor: '#C1C0B9' }}>
-                                        <Row data={cincobola} style={styles.head} textStyle={styles.text} />
-                                        <Row data={obj} style={styles.head} textStyle={styles.text} />
                                     </Table>
                                 </View>
                             ))}

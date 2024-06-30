@@ -102,4 +102,6 @@ Outra coisa é sobre onde essa tela vai ficar localizada, coloquei ela na barra 
 
 *Por Jade Bortot*
 
-Tabelas da tela de notas 90% configuradas, falta arrumar a tabela de análises; inserir os elementos personalizaveis; os elementos que o usuário vai inserir (as notas e objetivos) e fazer o linkamento com a disciplina. 
+* Tabelas da tela de notas 90% configuradas, falta arrumar a tabela de análises; inserir os elementos personalizaveis; os elementos que o usuário vai inserir (as notas e objetivos) e fazer o linkamento com a disciplina. 
+
+* Tabela de análises configurada com a ideia de como ela seria (porém feita uma certa ganbiarra para isso)
