@@ -97,3 +97,9 @@ Percebi que meu ´DefaultTopBar´ estava muito específico e tentei tornalo mais
 Iniciei o layout da tela de notas, percebi que vou ter que criar tabelas dentro de tabelas, porém não sei exatamente como vou fazer para que o tamanho delas se enquadre de forma proporcional a quantidade de colunas referente a notas de trabalhos e provas, que são configuraveis pelo usuário.
 Acho que deveria ter começado de dentro para fora e não de fora para dentro...
 Outra coisa é sobre onde essa tela vai ficar localizada, coloquei ela na barra inferior para ficar mais fácil para mim achar, mas esse não é o lugar dela. tenho que deixá-la relacionada para cada disciplina e linkar os campos e cores devidamente para que faça sentido.
+
+### 30 de junho de 2024
+
+*Por Jade Bortot*
+
+Tabelas da tela de notas 90% configuradas, falta arrumar a tabela de análises; inserir os elementos personalizaveis; os elementos que o usuário vai inserir (as notas e objetivos) e fazer o linkamento com a disciplina. 
