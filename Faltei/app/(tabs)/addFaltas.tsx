@@ -14,7 +14,7 @@ type AddFaltasScreenRouteProp = RouteProp<{ params: AddFaltasScreenRouteParams }
 
 import GraficoPNG from '@/assets/images/garfico_addfaltas.png';
 
-export default function AddFaltasScreen() {
+export default function AddFaltas() {
   const route = useRoute<AddFaltasScreenRouteProp>();
   const { nomeDisciplina, corBarraLateral } = route.params;
 
@@ -28,15 +28,17 @@ export default function AddFaltasScreen() {
         darkColor={'#2D3855'}
         lightContent={useColorScheme() === 'light' ? true : false}
       />
-      <SafeAreaView style={styles.view}>
-        <ThemedView style={styles.titelContainer}>
-          <ThemedText style={styles.title}>{nomeDisciplina}</ThemedText>
-        </ThemedView>
-        <ThemedView style={styles.graficoContainer}>
-          <Image source={GraficoPNG} style={styles.grafico} />
-        </ThemedView>
-        <ThemedView style={styles.listaContainer}>
+      <SafeAreaView style={styles.container}>
+        <ThemedView style={styles.view}>
+          <ThemedView style={styles.titelContainer}>
+            <ThemedText style={styles.title}>{nomeDisciplina}</ThemedText>
+          </ThemedView>
+          <ThemedView style={styles.graficoContainer}>
+            <Image source={GraficoPNG} style={styles.grafico} />
+          </ThemedView>
+          <ThemedView style={styles.listaContainer}>
 
+          </ThemedView>
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
@@ -44,6 +46,11 @@ export default function AddFaltasScreen() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: "column",
+    paddingTop: ThemedStatusBar.height,
+  },
   view: {
     display: 'flex',
     flexDirection: 'column',

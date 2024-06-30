@@ -1,9 +1,10 @@
-import { Tabs } from 'expo-router';
+import { Tabs, useSegments } from 'expo-router';
 import React from 'react';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -13,7 +14,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarStyle: { 
+        tabBarStyle: {
           backgroundColor: Colors[colorScheme ?? 'light'].tabBackground,
           height: 60,
           paddingTop: 10,
@@ -54,6 +55,20 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'construct' : 'construct-outline'} color={color} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="addDisciplinas"
+        options={{
+          href: null,
+          tabBarStyle: { display: 'none' },
+        }}
+      />
+      <Tabs.Screen
+        name="addFaltas"
+        options={{
+          href: null,
+          tabBarStyle: { display: 'none' },
         }}
       />
     </Tabs>
