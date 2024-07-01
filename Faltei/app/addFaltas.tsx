@@ -1,22 +1,15 @@
 import React from 'react';
-import { useRoute, RouteProp } from '@react-navigation/native';
 import { Image, useColorScheme, SafeAreaView, StyleSheet } from 'react-native';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
 import GraficoPNG from '@/assets/images/garfico_addfaltas.png';
-
-type AddFaltasScreenRouteParams = {
-  nomeDisciplina: string;
-  corBarraLateral: string;
-};
-
-type AddFaltasScreenRouteProp = RouteProp<{ params: AddFaltasScreenRouteParams }, 'params'>;
+import { useLocalSearchParams } from 'expo-router';
 
 export default function AddFaltas() {
-  const route = useRoute<AddFaltasScreenRouteProp>();
-  const { nomeDisciplina, corBarraLateral } = route.params;
+  const { nomeDisciplina, corBarraLateral } = useLocalSearchParams();
+  console.log('Parâmetros recebidos:', nomeDisciplina, corBarraLateral);
   
   return (
     <ThemedView style={{backgroundColor: 'transparent'}}>
