@@ -47,8 +47,8 @@ export default function AddDisciplinasScreen() {
         lightContent={useColorScheme() === 'light' ? true : false} // Conteúdo da barra de status claro
       />
       <SafeAreaView style={styles.container}>
-        <Header title='Disciplinas' onBackPress={() => navigation.goBack()}/>
         <ThemedView style={styles.view}>
+        <Header title='Disciplinas' onBackPress={() => navigation.goBack()}/>
           <TextInput
             style={styles.input}
             placeholder="Nome da Disciplina"
