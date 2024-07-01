@@ -3,7 +3,6 @@ import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { StyleSheet, SafeAreaView, useColorScheme, View, Dimensions, ScrollView } from 'react-native';
-import axios from 'axios';
 import { Table, Row, Rows } from 'react-native-table-component';
 
 const screenWidth = Dimensions.get('window').width; // Definindo screenWidth fora do componente

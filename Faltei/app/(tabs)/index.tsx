@@ -2,11 +2,18 @@ import React from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
-import { StyleSheet, Image, SafeAreaView, useColorScheme} from 'react-native';
 
-import PlaceHolder from '@/assets/images/generic_pie.png';
+import { StyleSheet, SafeAreaView, Image, Button, useColorScheme } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../routes'
+
+const PlaceHolder = require('@/assets/images/generic_pie.png');
+
+type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 export default function HomeScreen() {
+  const navigation = useNavigation<homeScreenProp>();
   return (
     <ThemedView>
       <ThemedStatusBar
@@ -14,7 +21,6 @@ export default function HomeScreen() {
         darkColor={'#2D3855'} // Cor para o tema escuro
         lightContent={useColorScheme() === 'light' ? true : false} // Conteúdo da barra de status claro
       />
-      {/* Usar a SafeAreaView após o DefaultTopBar para evitar que o conteúdo fique atrás da barra de status no IOS */}
       <SafeAreaView style={styles.container}>
         <ThemedView style={styles.view}>
           <Image source={PlaceHolder} style={styles.image}/>
@@ -22,18 +28,19 @@ export default function HomeScreen() {
         <ThemedView style={styles.view}>
           <ThemedText>Ele é um barato e é da pesada!</ThemedText>
         </ThemedView>
+        <Button
+          title="Go to Details"
+          onPress={() => navigation.navigate('notas')}
+        />
       </SafeAreaView>
     </ThemedView>
+
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: "column",
     paddingTop: ThemedStatusBar.height,
-    gap: 15,
-    backgroundColor: 'transparent',
   },
   view:{
     padding: 10,

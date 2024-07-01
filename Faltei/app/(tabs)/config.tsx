@@ -3,8 +3,8 @@ import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { StyleSheet, SafeAreaView, useColorScheme, View, Text, Button, FlatList, Modal, TouchableOpacity } from 'react-native';
-import { Disciplina } from './types';
-import SubjectEditor from './SubjectEditor';
+import { Disciplina } from '../types';
+import SubjectEditor from '../SubjectEditor';
 
 export default function Config() {
 
