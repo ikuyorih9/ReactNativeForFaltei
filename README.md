@@ -136,3 +136,8 @@ Vou iniciar a construção da tela de configurações. Essa tela vai conter os s
 
 Tem que ser feita a interligação da tela de configurações com a tela de disciplinas, porque o nome e outras informações de cada disciplina que for adicionada vai ter que ser exibida na tela de configurações.
 Também terá que ser feita a integração da tela de configurações com a tela de notas, pois temos muitas dependências entre ambas, como a quantidade de provas e trabalhos, o pese de cada para se calcular os objetivos e as médias. 
+
+### 30 de junho de 2024
+*Por: Ketlen Souza*
+
+Realizei diversas tentativas de instalar o yarn para visualização e desenvolvimento do projeto, mas devido à erros na instalação não consegui.
