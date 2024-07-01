@@ -1,14 +1,9 @@
-
 import { ThemedView } from '@/components/ThemedView';
-import { ThemedText } from '@/components/ThemedText';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import { StackNavigationProp } from '@react-navigation/stack';
-import TabLayout from './_layout';
 import React, { useState, useEffect } from 'react';
-import { Text, useColorScheme, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import { useColorScheme, SafeAreaView, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -116,7 +111,7 @@ export default function Disciplinas() {
       <ThemedView style={styles.viewButton}>
         <TouchableOpacity
           style={styles.addButton}
-          onPress={() => router.push('addDisciplinas')}>        
+          onPress={() => router.push({ pathname: 'addDisciplinas' })}>        
           <Ionicons name="add" size={24} style={styles.text} />
         </TouchableOpacity>
       </ThemedView>

@@ -4,16 +4,12 @@ import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
 import { StyleSheet, SafeAreaView, Image, Button, useColorScheme } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../routes'
+import { useRouter } from 'expo-router';
 
-const PlaceHolder = require('@/assets/images/generic_pie.png');
-
-type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
+import PlaceHolder from '@/assets/images/generic_pie.png';
 
 export default function HomeScreen() {
-  const navigation = useNavigation<homeScreenProp>();
+  const router = useRouter();
   return (
     <ThemedView>
       <ThemedStatusBar
@@ -30,7 +26,7 @@ export default function HomeScreen() {
         </ThemedView>
         <Button
           title="Go to Details"
-          onPress={() => navigation.navigate('addDisciplinas')}
+          onPress={() => router.push({ pathname: 'addDisciplinas' })}
         />
       </SafeAreaView>
     </ThemedView>
