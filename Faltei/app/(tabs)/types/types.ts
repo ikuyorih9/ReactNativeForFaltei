@@ -10,6 +10,8 @@ export interface Trabalho{
 }
 
 export interface Disciplina {
+    id: string;
+    nome: string;
     provas: Prova[];
     trabalhos: Trabalho[];
     pesoMediaProvas: number;
