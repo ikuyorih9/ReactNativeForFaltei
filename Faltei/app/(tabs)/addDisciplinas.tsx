@@ -5,6 +5,7 @@ import { useNavigation } from 'expo-router';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 
+import Header from '@/components/BarraVoltar';
 
 export default function AddDisciplinasScreen() {
   const navigation = useNavigation();
@@ -18,7 +19,7 @@ export default function AddDisciplinasScreen() {
       />
       <SafeAreaView style={styles.container}>
         <ThemedView style={styles.view}>
-          <Text>Disciplinas</Text>
+        <Header title='Disciplinas'/>
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
