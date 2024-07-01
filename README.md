@@ -153,5 +153,8 @@ Realizei diversas tentativas de instalar o yarn para visualização e desenvolvi
 Mais uma vez com problemas no expo-router, modifiquei novamente e agora espero que não surja com outro problema. A documentação do expo-router é péssima.
 
 Fiz o componente `BannerDisciplinasFaltas` e criei uma lista desses componentes na página de disciplinas. Além de tornar o botão, de adicionar disciplinas, flutuante.
+
+Comcei a fazer o componente `BannerDisciplinasFaltas` e ajeitar a Home. Mas inda falta bastante coisa.
+
 ---
 
