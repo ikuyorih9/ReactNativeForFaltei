@@ -23,7 +23,13 @@ export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: Ban
         setOpacidade(1);
       }}
       onPress={() => {
-        router.push('addFaltas', { nomeDisciplina, corBarraLateral });
+        router.push({
+          pathname: "addFaltas",
+          params: {
+            nomeDisciplina: nomeDisciplina,
+            corBarraLateral: corBarraLateral
+          }
+       })
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade }]}>
