@@ -82,6 +82,8 @@ Usando o yarn foi solicitado pelo gerenciador de pacotes que não misturassem os
 
 Usei a SafeAreaView para ajustar a área de renderização no IOS. (Fiz o teste no iPhone 11)
 
+---
+
 *Por: Hugo Nakamura*
 
 Adicionou a imagem do gráfico na Home Screen.
@@ -93,21 +95,17 @@ Percebi que meu ´DefaultTopBar´ estava muito específico e tentei tornalo mais
 
 Fiz o componente `BannerDisciplinasFaltas` para utilizalo na página de faltas. Lá eu utilizei um `ScrollView` para colocar vários banners para indicar disciplinas diferentes e utilizar cores diferentes.
 
+---
+
 *Por: Hugo Nakamura*
 
 Adicionou a parte de roteamento das páginas fora dos Tabs. Além de fazer um botão na página disciplina para levar para página de adicionar disciplina.
 
-### 29 de junho de 2024
+---
+
 *Por: Jade Bortot*
 
 Iniciei o layout da tela de notas, percebi que vou ter que criar tabelas dentro de tabelas, porém não sei exatamente como vou fazer para que o tamanho delas se enquadre de forma proporcional a quantidade de colunas referente a notas de trabalhos e provas, que são configuraveis pelo usuário. Acho que deveria ter começado de dentro para fora e não de fora para dentro... Outra coisa é sobre onde essa tela vai ficar localizada, coloquei ela na barra inferior para ficar mais fácil para mim achar, mas esse não é o lugar dela. tenho que deixá-la relacionada para cada disciplina e linkar os campos e cores devidamente para que faça sentido.
-
-### 30 de junho de 2024
-*Por: Jade Bortot*
-
-* Tabelas da tela de notas 90% configuradas, falta arrumar a tabela de análises; inserir os elementos personalizaveis; os elementos que o usuário vai inserir (as notas e objetivos) e fazer o linkamento com a disciplina.
-
-* Tabela de análises configurada com a ideia de como ela seria (porém feita uma certa ganbiarra para isso)
 
 ### 30 de junho de 2024
 *Por: Isaac Soares*
@@ -120,10 +118,15 @@ Na página de adicionar faltas, temos o nome da disciplinas e um gráfico indica
 
 Como eu estava tendo muitos probelmas com as rotas dediquei um tempo para entender como tinha sido feito pelo Hugo e percebi que ele estava misturando o expo-router com o react-navigator. E isso estava gerando conflitos na hora da navegação entre as páginas. Depos de muito pesquisar e tentar consegui arrumar as rotas, e fazer elas funcionarem apenas usando o Tabs do expo router. Então adicionei o addDisciplinas e o addFaltas nas rotas e fiz o header e a tab bar deles sumirem.
  
-**OBS.:** *Por enquanto para voltar tem que pressionar o botão de voltar do sistema operacional.* 
+**OBS.:** *Por enquanto para voltar tem que pressionar o botão de voltar do sistema operacional.*
 
-### 30 de junho de 2024
+---
+
 *Por: Jade Bortot*
+
+* Tabelas da tela de notas 90% configuradas, falta arrumar a tabela de análises; inserir os elementos personalizaveis; os elementos que o usuário vai inserir (as notas e objetivos) e fazer o linkamento com a disciplina.
+
+* Tabela de análises configurada com a ideia de como ela seria (porém feita uma certa ganbiarra para isso)
 
 Vou iniciar a construção da tela de configurações. Essa tela vai conter os seguintes campos:
 * Quantidade de provas
@@ -137,7 +140,17 @@ Vou iniciar a construção da tela de configurações. Essa tela vai conter os s
 Tem que ser feita a interligação da tela de configurações com a tela de disciplinas, porque o nome e outras informações de cada disciplina que for adicionada vai ter que ser exibida na tela de configurações.
 Também terá que ser feita a integração da tela de configurações com a tela de notas, pois temos muitas dependências entre ambas, como a quantidade de provas e trabalhos, o pese de cada para se calcular os objetivos e as médias. 
 
-### 30 de junho de 2024
+---
+
 *Por: Ketlen Souza*
 
 Realizei diversas tentativas de instalar o yarn para visualização e desenvolvimento do projeto, mas devido à erros na instalação não consegui.
+
+### 1 de julho de 2024
+
+*Por: Isaac Soares*
+
+Mais uma vez com problemas no expo-router, modifiquei novamente e agora espero que não surja com outro problema. A documentação do expo-router é péssima.
+
+---
+

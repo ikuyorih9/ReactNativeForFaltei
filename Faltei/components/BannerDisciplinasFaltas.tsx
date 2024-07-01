@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { BackHandler, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from 'expo-router';
+import React, { useState } from 'react';
+import { Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { useRouter } from 'expo-router';
 import { Colors } from '@/constants/Colors';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -14,7 +14,7 @@ type BannerDisciplinasFaltasProps = {
 
 export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: BannerDisciplinasFaltasProps) {
   const [opacidade, setOpacidade] = useState(1);
-  const navigation = useNavigation();
+  const router = useRouter();
 
   return (
     <TouchableWithoutFeedback
@@ -23,7 +23,7 @@ export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: Ban
         setOpacidade(1);
       }}
       onPress={() => {
-        navigation.navigate('addFaltas', { nomeDisciplina, corBarraLateral });
+        router.push('addFaltas', { nomeDisciplina, corBarraLateral });
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade }]}>

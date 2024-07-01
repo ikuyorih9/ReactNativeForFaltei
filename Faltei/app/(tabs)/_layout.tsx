@@ -57,7 +57,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="addDisciplinas"
         options={{
           href: null,
@@ -70,7 +70,7 @@ export default function TabLayout() {
           href: null,
           tabBarStyle: { display: 'none' },
         }}
-      />
+      /> */}
     </Tabs>
   );
 }

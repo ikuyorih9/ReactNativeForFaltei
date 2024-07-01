@@ -9,14 +9,14 @@ import TabLayout from './_layout';
 import React, { useState, useEffect } from 'react';
 import { Text, useColorScheme, SafeAreaView, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-import { useNavigation } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
 export default function Disciplinas() {
-  const navigation = useNavigation();
+  const router = useRouter();
   const [nomeDisciplina, setNomeDisciplina] = useState('');
   const [nomeProfessor, setNomeProfessor] = useState('');
   const [numCreditos, setNumCreditos] = useState('');
@@ -57,7 +57,7 @@ export default function Disciplinas() {
       <ThemedView style={styles.viewButton}>
         <TouchableOpacity
           style={styles.addButton}
-          onPress={() => navigation.navigate('addDisciplinas')}>        
+          onPress={() => router.push('addDisciplinas')}>        
           <Ionicons name="add" size={24} style={styles.text} />
         </TouchableOpacity>
       </ThemedView>
