@@ -155,3 +155,7 @@ Mais uma vez com problemas no expo-router, modifiquei novamente e agora espero q
 Fiz o componente `BannerDisciplinasFaltas` e criei uma lista desses componentes na página de disciplinas. Além de tornar o botão, de adicionar disciplinas, flutuante.
 ---
 
+*Por: Ketlen Souza*
+
+Consegui instalar o yarn e iniciei a modelagem da database. Foram criadas algumas das tabelas usando o expo-SQLite para integrar a base ao app.
+
