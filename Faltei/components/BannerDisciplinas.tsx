@@ -31,7 +31,7 @@ export function BannerDisciplinas({ nomeDisciplina, siglaDisciplina, nomeProfess
       }}
       onPress={() => {
         console.log('Clicou no banner de disciplina:', nomeDisciplina);
-        // router.push('addFaltas', { nomeDisciplina, corBarraLateral });
+        
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade, backgroundColor: corSecundaria }]}>
