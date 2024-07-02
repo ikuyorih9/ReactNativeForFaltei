@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
-import { ScrollView, StyleSheet, SafeAreaView, useColorScheme, Text, View, TextInput, Button, Switch, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, useColorScheme, View, TextInput, Switch } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import { useRouter } from 'expo-router';
@@ -17,7 +17,8 @@ export default function Config() {
     const [creditValue, setCreditValue] = useState('');
     const [disciplineColor, setDisciplineColor] = useState('#000000');
     // const [isDarkMode, setIsDarkMode] = useState(false);
-    const [lightContent, setIsDarkMode] = useState(false);
+    // const [lightContent, setIsDarkMode] = useState(false);
+    const [lightContent, setLightContent] = useState(useColorScheme() === 'light');
     const [notificationsEnabled, setNotificationsEnabled] = useState(false);
     const [selectedDisciplina, setSelectedDisciplina] = useState('');
     
@@ -25,14 +26,16 @@ export default function Config() {
     
     const disciplinas = [
       { id: '1', nome: 'Matemática' },
-      { id: '2', nome: 'Física' },
-      { id: '3', nome: 'Química' },
-      { id: '4', nome: 'Biologia' },
-      // Adicione mais disciplinas conforme necessário
+      // Adicione as disciplinas pelo banco de dados
     ];
 
+    // Atualizar o estado de lightContent quando o esquema de cores mudar
+    // useEffect(() => {
+    //   setLightContent(useColorScheme() === 'light');
+    // }, [useColorScheme()]);
+
   return (
-    <ThemedView>
+    <ThemedView lightColor={'#FFFFFF'} darkColor={'#121212'} style={styles.container}>
         <ThemedStatusBar
             lightColor={'#2D3855'} // Cor para o tema claro
             darkColor={'#2D3855'} // Cor para o tema escuro
@@ -41,12 +44,12 @@ export default function Config() {
 
         <ScrollView>
             {/* configuracoes de usuario */}
-            <View style={styles.rectangle}>
+            {/* <View style={styles.rectangle}>
                 <ThemedText type="title" style={styles.sectionTitle}>Configurações do Usuário</ThemedText>
                 <ThemedText style={styles.label}>Nome: {name}</ThemedText>
-                <ThemedText style={styles.label}>Email: {email}</ThemedText>
+                <ThemedText style={styles.label}>Email: {email}</ThemedText> */}
                 {/* nao estou conseguindo entrar na tela de alterar */}
-                <View style={styles.buttonRow}>
+                {/* <View style={styles.buttonRow}>
                   <TouchableOpacity style={styles.button} onPress={() => router.push('alterarSenhaEmail')}>
                     <Text style={styles.buttonText}>Alterar Email</Text>
                   </TouchableOpacity>
@@ -54,7 +57,7 @@ export default function Config() {
                     <Text style={styles.buttonText}>Alterar Senha</Text>
                   </TouchableOpacity>
                 </View>
-            </View>
+            </View> */}
 
             {/* Configurações sobre Créditos */}
             <View style={styles.rectangle}>
@@ -93,16 +96,17 @@ export default function Config() {
                     placeholder="Cor das disciplinas"
                     value={disciplineColor}
                     onChangeText={setDisciplineColor}
+                    // tem que jogar o codigo da cor no bd
                 />
 
                 <ThemedText type="title" style={styles.sectionSubtitle}>Tema do aplicativo:</ThemedText>
-                <View style={styles.switchContainer}>
+                {/* <View style={styles.switchContainer}>
                   <ThemedText style={styles.label}>Modo Escuro</ThemedText>
                   <Switch
                       value={lightContent}
-                      onValueChange={setIsDarkMode}
+                      onValueChange={setLightContent}
                   />
-                </View>
+                </View> */}
             </View>
 
             {/* Configurações de Notificações */}
