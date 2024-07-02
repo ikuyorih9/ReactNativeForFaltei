@@ -158,3 +158,8 @@ Comcei a fazer o componente `BannerDisciplinasFaltas` e ajeitar a Home. Mas inda
 
 ---
 
+### 2 de julho de 2024
+
+Terminei de estilizar o `BannerDisciplinasFaltas` e ajeitei a Home para ficar com as áreas dos componentes com tamnho certo. Falta colocar o gráfico de faltas, pois ainda é uma imagem...
+
+---
