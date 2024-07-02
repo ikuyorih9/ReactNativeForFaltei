@@ -153,9 +153,19 @@ Realizei diversas tentativas de instalar o yarn para visualização e desenvolvi
 Mais uma vez com problemas no expo-router, modifiquei novamente e agora espero que não surja com outro problema. A documentação do expo-router é péssima.
 
 Fiz o componente `BannerDisciplinasFaltas` e criei uma lista desses componentes na página de disciplinas. Além de tornar o botão, de adicionar disciplinas, flutuante.
+
+Comcei a fazer o componente `BannerDisciplinasFaltas` e ajeitar a Home. Mas inda falta bastante coisa.
+
 ---
 
 *Por: Ketlen Souza*
 
 Consegui instalar o yarn e iniciei a modelagem da database. Foram criadas algumas das tabelas usando o expo-SQLite para integrar a base ao app.
 
+### 2 de julho de 2024
+
+Terminei de estilizar o `BannerDisciplinasFaltas` e ajeitei a Home para ficar com as áreas dos componentes com tamnho certo. Falta colocar o gráfico de faltas, pois ainda é uma imagem...
+
+Consegui colocar um gráfico na main.
+
+---

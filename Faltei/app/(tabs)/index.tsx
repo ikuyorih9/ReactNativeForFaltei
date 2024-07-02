@@ -3,13 +3,23 @@ import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
-import { StyleSheet, SafeAreaView, Image, Button, useColorScheme } from 'react-native';
+import { StyleSheet, SafeAreaView, Image, Button, useColorScheme, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
+import { PieChart } from "react-native-gifted-charts";
 
 import PlaceHolder from '@/assets/images/generic_pie.png';
+import { BannerDisciplinasHome } from '@/components/BannerDisciplinasHome';
+
 
 export default function HomeScreen() {
   const router = useRouter();
+
+  const data = [
+    {value: 54, color: '#177AD5', text: '54%'},
+    {value: 40, color: '#79D2DE', text: '30%'},
+    {value: 20, color: '#ED6665', text: '26%'},
+];
+
   return (
     <ThemedView>
       <ThemedStatusBar
@@ -19,15 +29,57 @@ export default function HomeScreen() {
       />
       <SafeAreaView style={styles.container}>
         <ThemedView style={styles.view}>
-          <Image source={PlaceHolder} style={styles.image}/>
+          <PieChart
+            donut
+            showText
+            textColor="black"
+            radius={130}
+            textSize={20}
+            data = {data}
+          />
         </ThemedView>
-        <ThemedView style={styles.view}>
-          <ThemedText>Ele é um barato e é da pesada!</ThemedText>
-        </ThemedView>
-        <Button
-          title="Go to Details"
-          onPress={() => router.push({ pathname: 'addDisciplinas' })}
-        />
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
+          <BannerDisciplinasHome
+            nomeDisciplina="Fundamentos de Microeletrônica"
+            porCentagemFaltas={0}
+            faltasRestantes={10}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Computação de Alto Desempenho"
+            porCentagemFaltas={7}
+            faltasRestantes={8}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Projeto de Circuitos Integrados"
+            porCentagemFaltas={13}
+            faltasRestantes={3}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Teoria da Computação e Compiladores"
+            porCentagemFaltas={18}
+            faltasRestantes={8}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Desenvolvimento Web e Mobile"
+            porCentagemFaltas={22}
+            faltasRestantes={2}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Sistemas Embarcados"
+            porCentagemFaltas={26}
+            faltasRestantes={3}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Engenharia de Software"
+            porCentagemFaltas={27}
+            faltasRestantes={1}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Gestão Ambiental para Engenheiros"
+            porCentagemFaltas={35}
+            faltasRestantes={0}
+          />
+        </ScrollView>
       </SafeAreaView>
     </ThemedView>
 
@@ -36,16 +88,43 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: ThemedStatusBar.height,
+    marginTop: ThemedStatusBar.height + 5,
+    marginBottom: 5,
+    marginHorizontal: 5,
+
+    backgroundColor: 'transparent',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    gap: 15,
   },
   view:{
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 10,
-    margin: 25,
-    backgroundColor: '#E3E1E1'
+    height: 320,
+    marginHorizontal: 5,
+    backgroundColor: '#E3E1E1',
+    borderRadius: 10,
   },
-  image: {
-    width: "100%",
+  grafico: {
+    width: 350,
+    height: 350,
     borderRadius: 18,
   },
-
+  scrollview: {
+    height: 440,
+    marginBottom: 5,
+    marginHorizontal: 5,
+    backgroundColor: "#D9D9D9",
+    borderRadius: 10,
+  },
+  scrollviewContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    padding: 5,
+    gap: 15,
+  },
 });

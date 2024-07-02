@@ -44,7 +44,6 @@ export default function Faltas() {
               />
             ))}
           </View>
-
         </ScrollView>
       </SafeAreaView>
     </ThemedView>
@@ -99,5 +98,4 @@ const styles = StyleSheet.create({
     color:"#fff",
     textAlign: 'center',
   },
-
 });

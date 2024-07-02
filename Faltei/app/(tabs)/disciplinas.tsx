@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
 
     padding: 20,
   },
-
   text:{
     width: "100%",
     height: "100%",
@@ -112,5 +111,4 @@ const styles = StyleSheet.create({
     color:"#fff",
     textAlign: 'center',
   },
-
 });
