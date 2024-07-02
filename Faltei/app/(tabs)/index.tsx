@@ -5,12 +5,21 @@ import { ThemedText } from '@/components/ThemedText';
 
 import { StyleSheet, SafeAreaView, Image, Button, useColorScheme, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
+import { PieChart } from "react-native-gifted-charts";
 
 import PlaceHolder from '@/assets/images/generic_pie.png';
 import { BannerDisciplinasHome } from '@/components/BannerDisciplinasHome';
 
+
 export default function HomeScreen() {
   const router = useRouter();
+
+  const data = [
+    {value: 54, color: '#177AD5', text: '54%'},
+    {value: 40, color: '#79D2DE', text: '30%'},
+    {value: 20, color: '#ED6665', text: '26%'},
+];
+
   return (
     <ThemedView>
       <ThemedStatusBar
@@ -20,7 +29,14 @@ export default function HomeScreen() {
       />
       <SafeAreaView style={styles.container}>
         <ThemedView style={styles.view}>
-          <Image source={PlaceHolder} style={styles.grafico}/>
+          <PieChart
+            donut
+            showText
+            textColor="black"
+            radius={130}
+            textSize={20}
+            data = {data}
+          />
         </ThemedView>
         <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
           <BannerDisciplinasHome
