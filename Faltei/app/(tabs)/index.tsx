@@ -3,7 +3,7 @@ import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
-import { StyleSheet, SafeAreaView, Image, Button, useColorScheme } from 'react-native';
+import { StyleSheet, SafeAreaView, Image, Button, useColorScheme, ScrollView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../routes'
@@ -21,18 +21,20 @@ export default function HomeScreen() {
         darkColor={'#2D3855'} // Cor para o tema escuro
         lightContent={useColorScheme() === 'light' ? true : false} // Conteúdo da barra de status claro
       />
-      <SafeAreaView style={styles.container}>
-        <ThemedView style={styles.view}>
-          <Image source={PlaceHolder} style={styles.image}/>
-        </ThemedView>
-        <ThemedView style={styles.view}>
-          <ThemedText>Ele é um barato e é da pesada!</ThemedText>
-        </ThemedView>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('notas')}
-        />
-      </SafeAreaView>
+      <ScrollView>
+        <SafeAreaView style={styles.container}>
+          <ThemedView style={styles.view}>
+            <Image source={PlaceHolder} style={styles.image}/>
+          </ThemedView>
+          <ThemedView style={styles.view}>
+            <ThemedText>Ele é um barato e é da pesada!</ThemedText>
+          </ThemedView>
+          <Button
+            title="Go to Details"
+            onPress={() => navigation.navigate('notas')}
+          />
+        </SafeAreaView>
+      </ScrollView>
     </ThemedView>
 
   );
