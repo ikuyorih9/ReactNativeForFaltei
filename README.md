@@ -191,6 +191,7 @@ Eu também apliquei a mesma lógica das disciplinas nas faltas. O problema é qu
 ---
 
 *Por: Jade Bortot*
+
 Tive muitos problemas em questão de fazer com que o modo escuro funcionasse, acabei deixando isso de lado. O layout para alterar a cor da disciplina está pronto, só precisa fazer a integração com o banco de dados.
 Confugirações de usuário estão comentadas pois ainda não será possível ser aplicado essa função.
 Também tentei simular a tela de notas com um banco de dados, porém não funcionou! Deixei as configurações comentadas pois acredito que com o banco de dados configurado será possível reutilizar o que está lá. Então a tela de notas ficou bem simples, basicamente o esqueleto da ideia dela.
