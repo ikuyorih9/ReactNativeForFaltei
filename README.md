@@ -162,6 +162,13 @@ Comcei a fazer o componente `BannerDisciplinasFaltas` e ajeitar a Home. Mas inda
 
 Consegui instalar o yarn e iniciei a modelagem da database. Foram criadas algumas das tabelas usando o expo-SQLite para integrar a base ao app.
 
+---
+*Por: Hugo Nakamura*
+
+Eu basicamente fiz toda a tela de adicionar disciplinas. Antes, ela apenas continha templates de banners que o Isaac fez. Eu primeiro fiz o botão de adicionar disciplinas, que levava para outra tela, para poder salvar as disciplinas. Eu comecei salvando tudo com AsyncStorage, que funciona com palavras-chave. No caso, a palavra chave para cada disciplina é a sigla dela, que supõe-se ser única. 
+
+Depois, eu criei rotinas de carregamento de disciplinas na memória, o que permitiu pôr todas as disciplinas salvas nas telas. Nesse caso, foi só na de Disciplinas.
+
 ### 2 de julho de 2024
 
 Terminei de estilizar o `BannerDisciplinasFaltas` e ajeitei a Home para ficar com as áreas dos componentes com tamnho certo. Falta colocar o gráfico de faltas, pois ainda é uma imagem...
@@ -169,3 +176,6 @@ Terminei de estilizar o `BannerDisciplinasFaltas` e ajeitei a Home para ficar co
 Consegui colocar um gráfico na main.
 
 ---
+*Por: Hugo Nakamura*
+
+Eu também apliquei a mesma lógica das disciplinas nas faltas. O problema é que o Date Picker, para adicionar datas de faltas, não funcionou muito bem. Pelo menos, todas as disciplinas salvas aparecem na tela Faltas. Também, teoricamente, as faltas estão sendo salvas, somente não apresentadas na tela de Adicionar Faltas.
