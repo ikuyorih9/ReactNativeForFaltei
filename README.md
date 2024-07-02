@@ -169,6 +169,11 @@ Eu basicamente fiz toda a tela de adicionar disciplinas. Antes, ela apenas conti
 
 Depois, eu criei rotinas de carregamento de disciplinas na memória, o que permitiu pôr todas as disciplinas salvas nas telas. Nesse caso, foi só na de Disciplinas.
 
+---
+*Por: Jade Bortot*
+
+Alterei totalmente o conteúdo da tela de configurações, conversamos no grupo e vimos que o que tinhamos planejado seria ideial estar na tela de adição de disciplinas. Portante a tela de configurações será voltada a configurações do usuário; de aparência das disciplinas e do aplicativo e para adição de quanto valem os créditos do curso.
+
 ### 2 de julho de 2024
 
 *Por: Isaac Soares*
@@ -182,3 +187,12 @@ Consegui colocar um gráfico na main.
 *Por: Hugo Nakamura*
 
 Eu também apliquei a mesma lógica das disciplinas nas faltas. O problema é que o Date Picker, para adicionar datas de faltas, não funcionou muito bem. Pelo menos, todas as disciplinas salvas aparecem na tela Faltas. Também, teoricamente, as faltas estão sendo salvas, somente não apresentadas na tela de Adicionar Faltas.
+
+---
+
+*Por: Jade Bortot*
+Tive muitos problemas em questão de fazer com que o modo escuro funcionasse, acabei deixando isso de lado. O layout para alterar a cor da disciplina está pronto, só precisa fazer a integração com o banco de dados.
+Confugirações de usuário estão comentadas pois ainda não será possível ser aplicado essa função.
+Também tentei simular a tela de notas com um banco de dados, porém não funcionou! Deixei as configurações comentadas pois acredito que com o banco de dados configurado será possível reutilizar o que está lá. Então a tela de notas ficou bem simples, basicamente o esqueleto da ideia dela.
+
+
