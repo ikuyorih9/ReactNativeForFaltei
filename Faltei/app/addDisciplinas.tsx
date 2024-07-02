@@ -17,6 +17,7 @@ export default function AddDisciplinasScreen() {
   const [siglaDisciplina, setSiglaDisciplina] = useState('');
   const [numCreditos, setNumCreditos] = useState('');
   const [corDisciplina, setCorDisciplina] = useState('#2D3855'); // Cor padrão ou inicial da disciplina
+  const [datas, setDatas] = useState<Date[]>([]);
 
   const salvarDisciplina = async()=>{
     try {
@@ -25,7 +26,8 @@ export default function AddDisciplinasScreen() {
         nomeProfessor:nomeProfessor, 
         sigla:siglaDisciplina,
         creditos:parseInt(numCreditos), 
-        cor:corDisciplina
+        cor:corDisciplina,
+        datas:datas
       };
       console.log("Enviando:", disciplina);
 
