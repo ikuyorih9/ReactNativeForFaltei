@@ -1,0 +1,127 @@
+import React, { useState } from 'react';
+import { Picker } from '@react-native-picker/picker';
+import { ThemedStatusBar } from '@/components/ThemedStatusBar';
+import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
+import { StyleSheet, SafeAreaView, useColorScheme, View, Text, FlatList, Modal, TouchableOpacity, Button  } from 'react-native';
+import { Disciplina, Prova, Trabalho } from '../(tabs)/types/types'; // Ajuste o caminho conforme a estrutura do seu projeto
+import SubjectEditor from './SubjectEditor';
+
+// adicionar o botão de voltar
+export default function Config() {
+
+  const [disciplinas, setDisciplinas] = useState<Disciplina[]>([ // seletor de disciplinas
+    { id: '1', nome: 'Matemática', provas: [{ id: '1', peso: 50 }, { id: '2', peso: 50 }], trabalhos: [{ id: '1', peso: 50 }, { id: '2', peso: 50 }], pesoMediaProvas: 50, pesoMediaTrabalhos: 10 },
+    { id: '2', nome: 'Física', provas: [{ id: '1', peso: 500 }, { id: '2', peso: 500 }], trabalhos: [{ id: '1', peso: 500 }, { id: '2', peso: 500 }], pesoMediaProvas: 500, pesoMediaTrabalhos: 100 },
+    
+    // Selecionar uma disciplina a partir das disciplinas ja adiconadas
+  ]);
+  
+  const [disciplinaSelecionada, setDisciplinaSelecionada] = useState<Disciplina | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedDisciplinaId, setSelectedDisciplinaId] = useState<string>(disciplinas[0].id);
+
+  const abrirEditor = (selectedDisciplinaId: string) => {
+    const disciplina = disciplinas.find(d => d.id === selectedDisciplinaId);
+    if (disciplina) {
+      setDisciplinaSelecionada(disciplina);
+      setIsModalVisible(true);
+    }
+  };
+
+  const fecharEditor = () => {
+    setDisciplinaSelecionada(null);
+    setIsModalVisible(false);
+  };
+
+  // jogar as infos no banco de dados????
+  const atualizarDisciplina = (disciplinaAtualizada: Disciplina) => {
+    setDisciplinas(disciplinas.map(disciplina => (disciplina.id === disciplinaAtualizada.id ? disciplinaAtualizada : disciplina)));
+    fecharEditor();
+  };
+
+  return (
+    <ThemedView>
+      <ThemedStatusBar
+        lightColor={'#2D3855'} // Cor para o tema claro
+        darkColor={'#2D3855'} // Cor para o tema escuro
+        lightContent={useColorScheme() === 'light' ? true : false} // Conteúdo da barra de status claro
+      />
+
+      <View>
+        <Picker
+          selectedValue={selectedDisciplinaId}
+          onValueChange={(itemValue) => setSelectedDisciplinaId(itemValue)}
+        >
+          {disciplinas.map(disciplina => (
+            <Picker.Item key={disciplina.id} label={disciplina.nome} value={disciplina.id} />
+          ))}
+        </Picker>
+
+        <Button title="Editar Disciplina" onPress={() => abrirEditor('1')} />
+          {/* Adicione outros botões ou lógica conforme necessário */}
+
+        <Modal visible={isModalVisible} animationType="slide">
+          {disciplinaSelecionada && (
+            <SubjectEditor disciplina={disciplinaSelecionada} onSave={atualizarDisciplina} onCancel={fecharEditor} />
+          )}
+        </Modal>
+      </View>
+    </ThemedView>
+  );
+};
+
+const styles = StyleSheet.create({
+  // container: {
+  //   display: 'flex',
+  //   flexDirection: "column",
+  //   paddingTop: ThemedStatusBar.height,
+  // },
+  container: {
+    flex: 1,
+    paddingTop: ThemedStatusBar.height,
+    paddingBottom: 50,
+    backgroundColor: 'transparent',
+  },
+  barraSuperior: {
+    display: 'flex',
+    flexDirection: "column",
+    gap: 15,
+    paddingTop: ThemedStatusBar.height,
+    backgroundColor: 'transparent',
+  },
+  tableContainer: {
+    // width: screenWidth / 3 - 10, // 1/3 da largura da tela, menos a margem
+    // marginHorizontal: 10, // Espaçamento entre as tabelas
+  },
+  head: {
+    height: 50,
+    backgroundColor: '#f1f8ff',
+  },
+  text: {
+    margin: 6,
+    textAlign: 'center',
+  },
+  row: {
+    height: 40,
+    backgroundColor: '#f1f8ff',
+  },
+  rectangle: {
+    borderWidth: 2,
+    borderColor: 'gray',
+    padding: 10,
+    marginTop: 20,
+    marginRight: 5,  // 20 pixels de margem à direita
+    marginLeft: 5,   // 40 pixels de margem à esquerda
+    marginBottom: 10, // 30 pixels de margem em baixo
+    borderRadius: 10, // Cantos arredondados, se desejar
+  },
+  rectangleTitle: {
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  tableRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+});

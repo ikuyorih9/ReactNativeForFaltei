@@ -4,6 +4,11 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import alterarSenhaEmail from './(tabs)/alterarSenhaEmail';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Config from './(tabs)/config';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -30,6 +35,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'light' ? DefaultTheme : DarkTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="alterarSenhaEmail" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
