@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
@@ -6,10 +6,15 @@ import { ThemedText } from '@/components/ThemedText';
 import { StyleSheet, SafeAreaView, Image, Button, useColorScheme, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { PieChart } from "react-native-gifted-charts";
+import { useFocusEffect } from '@react-navigation/native';
 
 import PlaceHolder from '@/assets/images/generic_pie.png';
 import { BannerDisciplinasHome } from '@/components/BannerDisciplinasHome';
 
+import {TouchableOpacity, View, Text } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BannerDisciplinas } from '@/components/BannerDisciplinas';
+import {Disciplina, apagarTodasDisciplinas, apagarUmaDisciplina, carregaDisciplinas} from '@/components/Disciplina';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -19,6 +24,17 @@ export default function HomeScreen() {
     {value: 40, color: '#79D2DE', text: '30%'},
     {value: 20, color: '#ED6665', text: '26%'},
   ];
+
+  const [banners, setBanners] = useState<Disciplina[]>([]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      carregaDisciplinas().then((disciplinas)=>{
+        setBanners(disciplinas);
+      });
+      
+    }, [])
+  );
 
   return (
     <ThemedView>
@@ -39,46 +55,16 @@ export default function HomeScreen() {
           />
         </ThemedView>
         <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
-          <BannerDisciplinasHome
-            nomeDisciplina="Fundamentos de Microeletrônica"
-            porCentagemFaltas={0}
-            faltasRestantes={10}
-          />
-          <BannerDisciplinasHome
-            nomeDisciplina="Computação de Alto Desempenho"
-            porCentagemFaltas={7}
-            faltasRestantes={8}
-          />
-          <BannerDisciplinasHome
-            nomeDisciplina="Projeto de Circuitos Integrados"
-            porCentagemFaltas={13}
-            faltasRestantes={3}
-          />
-          <BannerDisciplinasHome
-            nomeDisciplina="Teoria da Computação e Compiladores"
-            porCentagemFaltas={18}
-            faltasRestantes={8}
-          />
-          <BannerDisciplinasHome
-            nomeDisciplina="Desenvolvimento Web e Mobile"
-            porCentagemFaltas={22}
-            faltasRestantes={2}
-          />
-          <BannerDisciplinasHome
-            nomeDisciplina="Sistemas Embarcados"
-            porCentagemFaltas={26}
-            faltasRestantes={3}
-          />
-          <BannerDisciplinasHome
-            nomeDisciplina="Engenharia de Software"
-            porCentagemFaltas={27}
-            faltasRestantes={1}
-          />
-          <BannerDisciplinasHome
-            nomeDisciplina="Gestão Ambiental para Engenheiros"
-            porCentagemFaltas={35}
-            faltasRestantes={0}
-          />
+          <View>
+            {banners.map((disciplina, index) => (
+              <BannerDisciplinasHome 
+                key={index}
+                nomeDisciplina={disciplina.nomeDisciplina}
+                porCentagemFaltas={0}
+                faltasRestantes={10}
+              />
+            ))}
+          </View>
         </ScrollView>
       </SafeAreaView>
     </ThemedView>

@@ -85,7 +85,8 @@ export function BannerDisciplinasHome({ nomeDisciplina, porCentagemFaltas, falta
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-  
+    marginBottom: 15,
+    marginTop:10,
     height: 115,
     borderRadius: 15,
 

@@ -55,7 +55,8 @@ export function BannerDisciplinasFaltas({ nomeDisciplina, nomeProfessor, sigla, 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-
+    marginBottom: 15,
+    marginTop:10,
     height: 130,
     borderRadius: 15,
 
