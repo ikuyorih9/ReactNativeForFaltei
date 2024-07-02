@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { BannerDisciplinasFaltas } from '@/components/BannerDisciplinasFaltas';
 import { ThemedView } from '@/components/ThemedView';
-import { StyleSheet, ScrollView, SafeAreaView, useColorScheme } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView, useColorScheme, TouchableOpacity, View } from 'react-native';
+import { router, useFocusEffect } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { Disciplina, carregaDisciplinas } from '@/components/Disciplina';
+
 
 
 export default function Faltas() {
+  const [banners, setBanners] = useState<Disciplina[]>([]);
+
+  //Toda vez que a tela atualizar, as disciplinas são carregadas.
+  useFocusEffect(
+    React.useCallback(() => {
+      carregaDisciplinas().then((disciplinas)=>{
+        setBanners(disciplinas); //Depois que as disciplinas são carregadas, os banners são atualizados
+      });
+      
+    }, [])
+  );
+
   return (
     <ThemedView>
       <ThemedStatusBar
@@ -13,37 +29,21 @@ export default function Faltas() {
         darkColor={'#2D3855'} // Cor para o tema escuro
         lightContent={useColorScheme() === 'light' ? true : false} // Conteúdo da barra de status claro
       />
+
       {/* Usar a SafeAreaView após o DefaultTopBar para evitar que o conteúdo fique atrás da barra de status no IOS */}
       <SafeAreaView style={styles.container}>
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
-          <BannerDisciplinasFaltas
-            corBarraLateral="#4BA3BE"
-            nomeDisciplina="Fundamentos de Microeletrônica"
-          />
-          <BannerDisciplinasFaltas
-          corBarraLateral="#4BA3BE"
-          nomeDisciplina="Projeto de Circuitos Integrados"
-          />
-          <BannerDisciplinasFaltas
-            corBarraLateral="#FE5E00"
-            nomeDisciplina="Teoria da Computação e Compiladores"
-          />
-          <BannerDisciplinasFaltas
-            corBarraLateral="#FE5E00"
-            nomeDisciplina="Desenvolvimento Web e Mobile"
-          />
-          <BannerDisciplinasFaltas
-            corBarraLateral="#FE5E00"
-            nomeDisciplina="Sistemas Embarcados" 
-          />
-          <BannerDisciplinasFaltas
-            corBarraLateral="#01CC00"
-            nomeDisciplina="Engenharia de Software"
-          />
-          <BannerDisciplinasFaltas
-            corBarraLateral="#FFB700"
-            nomeDisciplina="Gestão Ambiental para Engenheiros" 
-          />
+        <ScrollView style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
+          {/*View que adicionar banners conforme as disciplinas carregadas.*/}
+          <View>
+            {banners.map((disciplina, index) => (
+              <BannerDisciplinasFaltas 
+                key={index}
+                {...disciplina}
+                onPress={()=>{
+                }}
+              />
+            ))}
+          </View>
         </ScrollView>
       </SafeAreaView>
     </ThemedView>
@@ -68,5 +68,34 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 15,
     gap: 15,
+  },
+  viewButton: {
+    paddingHorizontal: 10,
+    paddingBottom: 5,
+    display: 'flex',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: 'transparent',
+  },
+  addButton:{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 75,
+    height: 75,
+    backgroundColor:"#2D3855",
+    borderRadius:20,
+
+    padding: 20,
+  },
+  text:{
+    width: "100%",
+    height: "100%",
+    padding: 5,
+    fontSize: 24,
+    color:"#fff",
+    textAlign: 'center',
   },
 });

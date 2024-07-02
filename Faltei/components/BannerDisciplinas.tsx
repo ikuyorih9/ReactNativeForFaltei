@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, ImageBackground, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { Image, ImageBackground, StyleSheet, TouchableWithoutFeedback, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Colors } from '@/constants/Colors';
 import { ThemedText } from '@/components/ThemedText';
@@ -9,19 +9,25 @@ import iconCap from '@/assets/images/icons/cap.png';
 import iconAcademic from '@/assets/images/icons/academic.png';
 import iconCoin from '@/assets/images/icons/coin.png';
 
+import { Disciplina, apagarUmaDisciplina } from './Disciplina';
 
-type BannerDisciplinasProps = {
-  nomeDisciplina: string;
-  siglaDisciplina: string;
-  nomeProfessor: string;
-  numCreditos: number;
-  corPrimaria: string;
-  corSecundaria: string;
-};
+interface BannerDisciplinasProps extends Disciplina {
+  onPress: () => void;
+}
 
-export function BannerDisciplinas({ nomeDisciplina, siglaDisciplina, nomeProfessor, numCreditos, corPrimaria, corSecundaria }: BannerDisciplinasProps) {
+export function BannerDisciplinas({ nomeDisciplina, nomeProfessor, sigla, creditos, cor, onPress }: BannerDisciplinasProps) {
   const [opacidade, setOpacidade] = useState(1);
   const router = useRouter();
+
+
+  const coresAssociadas: Record<string, string> = {
+    "#4BA3BE": "#94B4D1",
+    "#FE5E00": "#FFE2BF",
+    "#01CC00": "#D7FDCE",
+    "#FFB700": "#F6ECB8",      
+  };
+
+  const corSecundaria = coresAssociadas[cor];
 
   return (
     <TouchableWithoutFeedback
@@ -30,22 +36,39 @@ export function BannerDisciplinas({ nomeDisciplina, siglaDisciplina, nomeProfess
         setOpacidade(1);
       }}
       onPress={() => {
-        console.log('Clicou no banner de disciplina:', nomeDisciplina);
-        
+        Alert.alert(
+          'Confirmação',
+          `Tem certeza que deseja apagar a disciplina ${nomeDisciplina}?`,
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'Confirmar',
+              onPress: () => {
+                console.log('Clicou no banner de disciplina:', nomeDisciplina);
+                apagarUmaDisciplina(sigla);
+                onPress();
+              },
+            },
+          ],
+          { cancelable: false }
+        );
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade, backgroundColor: corSecundaria }]}>
-        <ThemedView style={[styles.header, { backgroundColor: corPrimaria }]}>
+        <ThemedView style={[styles.header, { backgroundColor: cor }]}>
           <ThemedView style={styles.nomeProfessorContainer}>
             <Image source={iconCap} style={styles.iconCap}></Image>
             <ThemedText style={styles.nomeProfessor}>{nomeProfessor}</ThemedText>
           </ThemedView>
             <ThemedView style={styles.siglaDisciplinaContainer}>
             <Image source={iconAcademic} style={styles.iconAcademic}></Image>
-            <ThemedText style={styles.siglaDisciplina}>{siglaDisciplina}</ThemedText>
+            <ThemedText style={styles.siglaDisciplina}>{sigla}</ThemedText>
           </ThemedView>
           <ImageBackground source={iconCoin} style={styles.iconCoin}>
-            <ThemedText style={styles.numCreditos}>{numCreditos}</ThemedText>
+            <ThemedText style={styles.numCreditos}>{creditos}</ThemedText>
           </ImageBackground>
         </ThemedView>
         <ThemedView style={styles.nomeDisciplinaContainer}>
@@ -59,7 +82,8 @@ export function BannerDisciplinas({ nomeDisciplina, siglaDisciplina, nomeProfess
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-
+    marginBottom: 15,
+    marginTop:10,
     height: 150,
     borderRadius: 14,
 

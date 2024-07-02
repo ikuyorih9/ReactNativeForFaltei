@@ -5,39 +5,64 @@ import { useNavigation } from 'expo-router';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import {Disciplina} from '@/components/Disciplina';
 
 import Header from '@/components/HeaderPagina';
+import Disciplinas from './(tabs)/disciplinas';
 
 export default function AddDisciplinasScreen() {
   const navigation = useNavigation();
   const [nomeDisciplina, setNomeDisciplina] = useState('');
   const [nomeProfessor, setNomeProfessor] = useState('');
+  const [siglaDisciplina, setSiglaDisciplina] = useState('');
   const [numCreditos, setNumCreditos] = useState('');
   const [corDisciplina, setCorDisciplina] = useState('#2D3855'); // Cor padrão ou inicial da disciplina
+  const [datas, setDatas] = useState<Date[]>([]);
 
-  const handleSaveDisciplina = async () => {
+  const salvarDisciplina = async()=>{
     try {
-      // Salvar os dados no AsyncStorage
-      const disciplina = {
-        nome: nomeDisciplina,
-        professor: nomeProfessor,
-        creditos: numCreditos,
-        cor: corDisciplina,
+      const disciplina:Disciplina={
+        nomeDisciplina:nomeDisciplina, 
+        nomeProfessor:nomeProfessor, 
+        sigla:siglaDisciplina,
+        creditos:parseInt(numCreditos), 
+        cor:corDisciplina,
+        datas:datas
       };
-      await AsyncStorage.setItem('disciplina', JSON.stringify(disciplina));
-      console.log('Disciplina salva localmente:', disciplina);
+      console.log("Enviando:", disciplina);
 
-      // Reiniciar os estados após salvar, se necessário
-      setNomeDisciplina('');
-      setNomeProfessor('');
-      setNumCreditos('');
-      setCorDisciplina('#2D3855'); // Voltar para o valor padrão
+      let disciplinasArray: string[];
+      const listaDisciplinas = await AsyncStorage.getItem('listaDisciplinas');
+      if(listaDisciplinas != null){
+        disciplinasArray = JSON.parse(listaDisciplinas) as string[];
+      }
+      else{
+        disciplinasArray = [disciplina.sigla];
+      }
+
+      let disciplinaJaCriada = false;
+
+      disciplinasArray.forEach(d => {
+        if(disciplina.sigla === d){
+          disciplinaJaCriada = true;
+        }
+      });
+
+      if(!disciplinaJaCriada){
+        await AsyncStorage.setItem(disciplina.sigla, JSON.stringify(disciplina));
+        disciplinasArray.push(disciplina.sigla);
+        await AsyncStorage.setItem('listaDisciplinas', JSON.stringify(disciplinasArray));
+        console.log('Disciplina salva com sucesso!');
+      }
+      else{
+        console.log('Disciplina já existe!');
+      }
+      
     } catch (error) {
       console.error('Erro ao salvar disciplina:', error);
     }
     navigation.goBack();
-  };
+  }
 
   return (
     <ThemedView style={{backgroundColor: 'transparent'}}>
@@ -66,6 +91,13 @@ export default function AddDisciplinasScreen() {
           />
           <TextInput
             style={styles.input}
+            placeholder="Sigla da disciplina"
+            value={siglaDisciplina}
+            onChangeText={text => setSiglaDisciplina(text)}
+            autoCorrect={false}
+          />
+          <TextInput
+            style={styles.input}
             placeholder="Número de Créditos-Aula"
             value={numCreditos}
             onChangeText={text => setNumCreditos(text)}
@@ -76,15 +108,17 @@ export default function AddDisciplinasScreen() {
             style={styles.picker}
             onValueChange={(itemValue) => setCorDisciplina(itemValue)}
           >
-            <Picker.Item label="Azul" value="#2D3855" />
-            <Picker.Item label="Verde" value="#008000" />
-            <Picker.Item label="Vermelho" value="#FF0000" />
-            {/* Adicione outras cores conforme necessário */}
+            <Picker.Item label="Azul" value="#4BA3BE" />
+            <Picker.Item label="Laranja" value="#FE5E00" />
+            <Picker.Item label="Verde" value="#01CC00" />
+            <Picker.Item label="Amarelo" value="#FFB700" />
           </Picker>
 
           <TouchableOpacity
             style={styles.button}
-            onPress={handleSaveDisciplina}
+            onPress={()=>{
+              salvarDisciplina();
+            }}
           >
             <Text style={styles.buttonText}>Criar disciplina</Text>
           </TouchableOpacity>
@@ -112,6 +146,8 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderWidth: 0,
     marginBottom: 10,
+    marginLeft: 25,
+    marginRight: 25,
     paddingHorizontal: 10,
     fontSize: 16,
   },

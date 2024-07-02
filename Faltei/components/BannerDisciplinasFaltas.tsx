@@ -6,15 +6,26 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 import GraficoPNG from '@/assets/images/grafico_faltas.png';
+import { Disciplina } from './Disciplina';
+import Disciplinas from '@/app/(tabs)/disciplinas';
 
-type BannerDisciplinasFaltasProps = {
-  corBarraLateral: string;
-  nomeDisciplina: string;
+
+interface BannerDisciplinasFaltasProps extends Disciplina {
+  onPress:() => void;
 };
 
-export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: BannerDisciplinasFaltasProps) {
+export function BannerDisciplinasFaltas({ nomeDisciplina, nomeProfessor, sigla, creditos, cor, datas, onPress }: BannerDisciplinasFaltasProps) {
   const [opacidade, setOpacidade] = useState(1);
   const router = useRouter();
+
+  const disciplina:Disciplina = {
+    nomeDisciplina:nomeDisciplina, 
+    nomeProfessor:nomeProfessor, 
+    sigla:sigla,
+    creditos:creditos, 
+    cor:cor,
+    datas:datas
+  };
 
   return (
     <TouchableWithoutFeedback
@@ -23,17 +34,11 @@ export function BannerDisciplinasFaltas({ corBarraLateral, nomeDisciplina }: Ban
         setOpacidade(1);
       }}
       onPress={() => {
-        router.push({
-          pathname: "addFaltas",
-          params: {
-            nomeDisciplina: nomeDisciplina,
-            corBarraLateral: corBarraLateral
-          }
-       })
+        router.push({pathname: "addFaltas", params: {sigla}})
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade }]}>
-        <ThemedView style={[styles.barralateral, { backgroundColor: corBarraLateral }]}></ThemedView>
+        <ThemedView style={[styles.barralateral, { backgroundColor: cor }]}></ThemedView>
         <ThemedView style={styles.cotainerInfos}>
           <ThemedView style={styles.nomeDisciplinaContainer}>
             <ThemedText style={styles.nomeDisciplina}>{nomeDisciplina}</ThemedText>
