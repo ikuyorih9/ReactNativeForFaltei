@@ -9,7 +9,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerDisciplinas } from '@/components/BannerDisciplinas';
-import {Disciplina, apagarTodasDisciplinas, carregaDisciplinas} from '@/components/Disciplina';
+import {Disciplina, apagarTodasDisciplinas, apagarUmaDisciplina, carregaDisciplinas} from '@/components/Disciplina';
 
 export default function Disciplinas() {
   const router = useRouter();

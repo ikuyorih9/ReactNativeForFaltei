@@ -37,6 +37,7 @@ export function BannerDisciplinas({ nomeDisciplina, nomeProfessor, sigla, credit
       }}
       onPress={() => {
         console.log('Clicou no banner de disciplina:', nomeDisciplina);
+        apagarUmaDisciplina(sigla);
         onPress();
       }}
     >
