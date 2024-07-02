@@ -9,53 +9,58 @@ import { FontAwesome6, Ionicons } from '@expo/vector-icons';
 type BannerDisciplinasHomeProps = {
   nomeDisciplina: string;
   porCentagemFaltas: number;
+  faltasRestantes: number;
 };
 
-export function BannerDisciplinasHome({ nomeDisciplina, porCentagemFaltas }: BannerDisciplinasHomeProps) {
+export function BannerDisciplinasHome({ nomeDisciplina, porCentagemFaltas, faltasRestantes }: BannerDisciplinasHomeProps) {
   const [opacidade, setOpacidade] = useState(1);
   const router = useRouter();
 
-  let comentraioHide : boolean = true;
-  let nomeDisciplinaHide : boolean = false;
+  const [nomeDisciplinaHide, setNomeDisciplinaHide] = useState(false);
 
-  const percentValues = (porCentagemFaltas: number): [string, string] => {
+  const percentValues = (porCentagemFaltas: number, faltasRestantes : number): [string, string, string] => {
     const percentColors = useColorScheme() === 'light' ? Colors.light : Colors.dark;
+    let vezes_ou_vez : string = "vezes";
+    if(faltasRestantes === 1) {
+      vezes_ou_vez = "vez";
+    }
+    
+    if (porCentagemFaltas == 0) {
+      return [percentColors.safesafe, "face-laugh-beam", "Perfeito! Você não possui faltas."];
+    }
     if (porCentagemFaltas <= 7) {
-      return [percentColors.safesafe, "face-laugh-beam"];
+      return [percentColors.safesafe, "face-laugh-beam", `Tá suave! Você ainda pode faltar ${faltasRestantes} ${vezes_ou_vez}.`];
     }  
     if (porCentagemFaltas <= 13) {
-      return [percentColors.safe, "face-smile"];
+      return [percentColors.safe, "face-smile", `Ainda tá tranquilo! Você pode faltar ${faltasRestantes} ${vezes_ou_vez}.`];
     }
     if (porCentagemFaltas <= 17) {
-      return [percentColors.safewarning, "face-meh"]; // Supondo que 'safewarning' foi um erro de digitação para 'safeWarning'
+      return [percentColors.safewarning, "face-meh", `Cuidado! Você pode faltar ${faltasRestantes} ${vezes_ou_vez}.`]; // Supondo que 'safewarning' foi um erro de digitação para 'safeWarning'
     }
     if (porCentagemFaltas <= 20) {
-      return [percentColors.warning, "face-frown-open"];
-    }
-    if (porCentagemFaltas <= 23) {
-      return [percentColors.hardwaring, "face-frown"]; // Supondo que 'hardwaring' foi um erro de digitação para 'hardWarning'
+      return [percentColors.warning, "face-frown-open", `Tá preocupante! Você pode faltar apenas ${faltasRestantes} ${vezes_ou_vez}.`];
     }
     if (porCentagemFaltas <= 25) {
-      return [percentColors.danger, "face-flushed"];
+      return [percentColors.hardwaring, "face-frown", `Não falte mais! Você pode faltar só mais ${faltasRestantes} ${vezes_ou_vez}.`]; // Supondo que 'hardwaring' foi um erro de digitação para 'hardWarning'
     }
     if (porCentagemFaltas <= 30) {
-      return [percentColors.dead, "face-dizzy"]; // Supondo que 'dead' é uma cor definida para os casos mais críticos
+      return [percentColors.danger, "face-flushed", `Tá turistando? Se você faltar ${faltasRestantes} ${vezes_ou_vez} já era!`];
+    }
+    if (porCentagemFaltas > 30) {
+      return [percentColors.dead, "face-dizzy", "Parabéns turista!! Você reprovou por falta..."]; // Supondo que 'dead' é uma cor definida para os casos mais críticos
     }
     // Retornar valores padrão se nenhum dos casos acima for atendido
-    return [percentColors.safesafe, "face-laugh-beam"]; // Substitua 'face-smile' pelo ícone padrão desejado
+    return [percentColors.safesafe, "face-laugh-beam", "Perfeito! Você não possui faltas."]; // Substitua 'face-smile' pelo ícone padrão desejado
   };
 
-  const [percentColor, faceIcon] = percentValues(porCentagemFaltas);
+  const [percentColor, faceIcon, frase] = percentValues(porCentagemFaltas, faltasRestantes);
 
   return (
     <TouchableWithoutFeedback
-      onPressIn={() => setOpacidade(0.6)}
-      onPressOut={() => {
-        setOpacidade(1);
-      }}
+      // onPressIn={() => setOpacidade(0.6)}
+      // onPressOut={() => setOpacidade(1)}
       onPress={() => {
-        ~comentraioHide;
-        ~nomeDisciplinaHide;	
+        setNomeDisciplinaHide(!nomeDisciplinaHide);
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade, backgroundColor: percentColor }]}>
@@ -64,7 +69,8 @@ export function BannerDisciplinasHome({ nomeDisciplina, porCentagemFaltas }: Ban
             <FontAwesome6 name={faceIcon} size={30} color={"black"} />
           </ThemedView>
           <ThemedView style={styles.nomeDisciplinaContainer}>
-            <ThemedText style={styles.nomeDisciplina}>{nomeDisciplina}</ThemedText>
+            <ThemedText style={[styles.nomeDisciplina, nomeDisciplinaHide ? { display: 'none' } : {}]}>{nomeDisciplina}</ThemedText>
+            <ThemedText style={[styles.nomeDisciplina, nomeDisciplinaHide ? {} : { display: 'none' }]}>{frase}</ThemedText>
           </ThemedView>
           <ThemedView style={styles.containerFalta}>
             <Ionicons name='add-circle-outline' size={24} style={styles.iconFalta} />
@@ -79,8 +85,8 @@ export function BannerDisciplinasHome({ nomeDisciplina, porCentagemFaltas }: Ban
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-
-    height: 130,
+  
+    height: 115,
     borderRadius: 15,
 
     flexDirection: 'row',
@@ -88,14 +94,15 @@ const styles = StyleSheet.create({
   cotainerInfos: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
 
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
 
-    paddingLeft: 15,
-    paddingRight: 10,
+    gap: 5,
+
+    padding: 20,
 
     backgroundColor: 'transparent',
   },
@@ -103,8 +110,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   nomeDisciplinaContainer: {
-    width: 215,
-    marginRight: 10,
+    width: 255,
     backgroundColor: 'transparent',
   },
   nomeDisciplina: {
@@ -114,10 +120,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   containerFalta: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 5,
     backgroundColor: 'transparent',
   },
   iconFalta: {
-
+    transform: [{ rotate: '45deg' }]
   },
   falta: {
 

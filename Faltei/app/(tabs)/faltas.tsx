@@ -15,7 +15,7 @@ export default function Faltas() {
       />
       {/* Usar a SafeAreaView após o DefaultTopBar para evitar que o conteúdo fique atrás da barra de status no IOS */}
       <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
           <BannerDisciplinasFaltas
             corBarraLateral="#4BA3BE"
             nomeDisciplina="Fundamentos de Microeletrônica"

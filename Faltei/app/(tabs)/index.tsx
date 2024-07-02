@@ -20,36 +20,48 @@ export default function HomeScreen() {
       />
       <SafeAreaView style={styles.container}>
         <ThemedView style={styles.view}>
-          <Image source={PlaceHolder} style={styles.image}/>
+          <Image source={PlaceHolder} style={styles.grafico}/>
         </ThemedView>
-        <ScrollView style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
           <BannerDisciplinasHome
             nomeDisciplina="Fundamentos de Microeletrônica"
+            porCentagemFaltas={0}
+            faltasRestantes={10}
+          />
+          <BannerDisciplinasHome
+            nomeDisciplina="Computação de Alto Desempenho"
             porCentagemFaltas={7}
+            faltasRestantes={8}
           />
           <BannerDisciplinasHome
             nomeDisciplina="Projeto de Circuitos Integrados"
             porCentagemFaltas={13}
+            faltasRestantes={3}
           />
           <BannerDisciplinasHome
             nomeDisciplina="Teoria da Computação e Compiladores"
-            porCentagemFaltas={17}
+            porCentagemFaltas={18}
+            faltasRestantes={8}
           />
           <BannerDisciplinasHome
             nomeDisciplina="Desenvolvimento Web e Mobile"
-            porCentagemFaltas={20}
+            porCentagemFaltas={22}
+            faltasRestantes={2}
           />
           <BannerDisciplinasHome
             nomeDisciplina="Sistemas Embarcados"
-            porCentagemFaltas={23}
+            porCentagemFaltas={26}
+            faltasRestantes={3}
           />
           <BannerDisciplinasHome
             nomeDisciplina="Engenharia de Software"
-            porCentagemFaltas={25}
+            porCentagemFaltas={27}
+            faltasRestantes={1}
           />
           <BannerDisciplinasHome
             nomeDisciplina="Gestão Ambiental para Engenheiros"
-            porCentagemFaltas={30}
+            porCentagemFaltas={35}
+            faltasRestantes={0}
           />
         </ScrollView>
       </SafeAreaView>
@@ -60,18 +72,33 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: ThemedStatusBar.height,
+    marginTop: ThemedStatusBar.height + 5,
+    marginBottom: 5,
+    marginHorizontal: 5,
+
+    backgroundColor: 'transparent',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    gap: 15,
   },
   view:{
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 10,
-    margin: 25,
-    backgroundColor: '#E3E1E1'
+    height: 320,
+    marginHorizontal: 5,
+    backgroundColor: '#E3E1E1',
+    borderRadius: 10,
   },
-  image: {
-    width: "100%",
+  grafico: {
+    width: 350,
+    height: 350,
     borderRadius: 18,
   },
-    scrollview: {
+  scrollview: {
+    height: 440,
     marginBottom: 5,
     marginHorizontal: 5,
     backgroundColor: "#D9D9D9",

@@ -50,7 +50,7 @@ export default function Disciplinas() {
         darkColor={'#2D3855'} // Cor para o tema escuro
         lightContent={useColorScheme() === 'light' ? true : false} // Conteúdo da barra de status claro
       />
-      <ScrollView style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollview} contentContainerStyle={styles.scrollviewContent}>
         <BannerDisciplinas
           corPrimaria="#4BA3BE"
           corSecundaria="#B4D1EC"
