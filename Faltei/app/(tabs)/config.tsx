@@ -99,8 +99,8 @@ export default function Config() {
                     // tem que jogar o codigo da cor no bd
                 />
 
-                <ThemedText type="title" style={styles.sectionSubtitle}>Tema do aplicativo:</ThemedText>
-                {/* <View style={styles.switchContainer}>
+                {/*<ThemedText type="title" style={styles.sectionSubtitle}>Tema do aplicativo:</ThemedText>
+                <View style={styles.switchContainer}>
                   <ThemedText style={styles.label}>Modo Escuro</ThemedText>
                   <Switch
                       value={lightContent}
