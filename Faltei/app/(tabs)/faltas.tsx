@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { BannerDisciplinasFaltas } from '@/components/BannerDisciplinasFaltas';
 import { ThemedView } from '@/components/ThemedView';
-import { StyleSheet, ScrollView, SafeAreaView, useColorScheme, TouchableOpacity, View } from 'react-native';
-import { router, useFocusEffect } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, ScrollView, SafeAreaView, useColorScheme, View } from 'react-native';
+import { useFocusEffect } from 'expo-router';
 import { Disciplina, carregaDisciplinas } from '@/components/Disciplina';
-
-
 
 export default function Faltas() {
   const [banners, setBanners] = useState<Disciplina[]>([]);

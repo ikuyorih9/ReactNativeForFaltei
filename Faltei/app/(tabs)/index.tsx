@@ -1,20 +1,16 @@
 import React, {useState} from 'react';
 import { ThemedStatusBar } from '@/components/ThemedStatusBar';
 import { ThemedView } from '@/components/ThemedView';
-import { ThemedText } from '@/components/ThemedText';
 
-import { StyleSheet, SafeAreaView, Image, Button, useColorScheme, ScrollView } from 'react-native';
+import { StyleSheet, SafeAreaView, useColorScheme, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { PieChart } from "react-native-gifted-charts";
 import { useFocusEffect } from '@react-navigation/native';
 
-import PlaceHolder from '@/assets/images/generic_pie.png';
 import { BannerDisciplinasHome } from '@/components/BannerDisciplinasHome';
 
-import {TouchableOpacity, View, Text } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { BannerDisciplinas } from '@/components/BannerDisciplinas';
-import {Disciplina, apagarTodasDisciplinas, apagarUmaDisciplina, carregaDisciplinas} from '@/components/Disciplina';
+import {View } from 'react-native';
+import {Disciplina, carregaDisciplinas} from '@/components/Disciplina';
 
 export default function HomeScreen() {
   const router = useRouter();

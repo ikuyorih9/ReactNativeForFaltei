@@ -7,8 +7,6 @@ import { ThemedView } from '@/components/ThemedView';
 
 import GraficoPNG from '@/assets/images/grafico_faltas.png';
 import { Disciplina } from './Disciplina';
-import Disciplinas from '@/app/(tabs)/disciplinas';
-
 
 interface BannerDisciplinasFaltasProps extends Disciplina {
   onPress:() => void;
