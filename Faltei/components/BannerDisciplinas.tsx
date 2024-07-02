@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, ImageBackground, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { Image, ImageBackground, StyleSheet, TouchableWithoutFeedback, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Colors } from '@/constants/Colors';
 import { ThemedText } from '@/components/ThemedText';
@@ -36,9 +36,25 @@ export function BannerDisciplinas({ nomeDisciplina, nomeProfessor, sigla, credit
         setOpacidade(1);
       }}
       onPress={() => {
-        console.log('Clicou no banner de disciplina:', nomeDisciplina);
-        apagarUmaDisciplina(sigla);
-        onPress();
+        Alert.alert(
+          'Confirmação',
+          `Tem certeza que deseja apagar a disciplina ${nomeDisciplina}?`,
+          [
+            {
+              text: 'Cancelar',
+              style: 'cancel',
+            },
+            {
+              text: 'Confirmar',
+              onPress: () => {
+                console.log('Clicou no banner de disciplina:', nomeDisciplina);
+                apagarUmaDisciplina(sigla);
+                onPress();
+              },
+            },
+          ],
+          { cancelable: false }
+        );
       }}
     >
       <ThemedView lightColor={Colors.light.background} darkColor={Colors.dark.background} style={[styles.container, { opacity: opacidade, backgroundColor: corSecundaria }]}>
