@@ -171,11 +171,14 @@ Depois, eu criei rotinas de carregamento de disciplinas na memória, o que permi
 
 ### 2 de julho de 2024
 
+*Por: Isaac Soares*
+
 Terminei de estilizar o `BannerDisciplinasFaltas` e ajeitei a Home para ficar com as áreas dos componentes com tamnho certo. Falta colocar o gráfico de faltas, pois ainda é uma imagem...
 
 Consegui colocar um gráfico na main.
 
 ---
+
 *Por: Hugo Nakamura*
 
 Eu também apliquei a mesma lógica das disciplinas nas faltas. O problema é que o Date Picker, para adicionar datas de faltas, não funcionou muito bem. Pelo menos, todas as disciplinas salvas aparecem na tela Faltas. Também, teoricamente, as faltas estão sendo salvas, somente não apresentadas na tela de Adicionar Faltas.
