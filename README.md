@@ -197,3 +197,10 @@ Confugirações de usuário estão comentadas pois ainda não será possível se
 Também tentei simular a tela de notas com um banco de dados, porém não funcionou! Deixei as configurações comentadas pois acredito que com o banco de dados configurado será possível reutilizar o que está lá. Então a tela de notas ficou bem simples, basicamente o esqueleto da ideia dela.
 
 
+---
+
+*Por: Ketlen Souza*
+
+Toda base foi modelada e implementada, e tentei fazer a integração entre a base e o código elaborado até o momento. No entanto, mesmo sem nenhum erro aparente no código, ao executar a aplicação e tentar adicionar novos dados, só são exibidos erros, não aparecendo nem mesmo os campos de inserção.
+A modelagem e implementação da base foi testada em uma api própria para geração de databases, o que garante que está correta, e apenas a integração com a aplicação é que não está funcionando.
+
